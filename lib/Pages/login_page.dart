@@ -26,15 +26,15 @@ class _LoginPageState extends State<LoginPage> {
         body: Stack(
           fit: StackFit.expand,
           children: <Widget>[
-            Positioned(
-              left: 50,
-              top: 550,
-              child: Image.asset(
-                'images/login-top.jpg',
-                height: 300,
-                width: 300,
-              ),
-            ),
+//            Positioned(
+//              left: 50,
+//              top: 550,
+//              child: Image.asset(
+//                'images/login-top.jpg',
+//                height: 300,
+//                width: 300,
+//              ),
+//            ),
             Positioned(
               top: 100,
               left: 0,
@@ -95,8 +95,8 @@ class _LoginPageState extends State<LoginPage> {
                     height: 100,
                   ),
                   Container(
-                    height: 275,
-                    width: 300,
+                    height: isSignIn ? 285 : 360,
+                    width: 325,
                     child: FormCard(
                       isSignIn,
                     ),
@@ -123,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 )),
             Positioned(
-              top: 530,
+              top: 620,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -136,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Positioned(
-              top: 560,
+              top: 670,
               left: -17.5,
 
               child: Transform.scale(
@@ -150,7 +150,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Positioned(
-              top: 560,
+              top: 670,
               left: 155,
               child: Transform.scale(
                 scale: 0.8,
