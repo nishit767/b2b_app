@@ -21,7 +21,8 @@ class ProductStore extends ChangeNotifier {
     products = [];
     for (int i = 1; i <= 50; i++) {
       products.add(Product(
-          '', Random().nextInt(50) * 20, categories[Random().nextInt(3)],
+          'http://placeimg.com/400/200/tech', Random().nextInt(50) * 20,
+          categories[Random().nextInt(3)],
           Random().nextDouble() * 5, Random().nextDouble() * 10000));
     }
   }

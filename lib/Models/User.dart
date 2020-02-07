@@ -33,7 +33,7 @@ class User extends ChangeNotifier {
   }
 
   setPassword(String pw) {
-    emailId = pw;
+    password = pw;
     notifyListeners();
   }
 }

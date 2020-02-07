@@ -1,14 +1,10 @@
-import 'package:b2b_app/Models/User.dart';
-import 'package:b2b_app/Pages/home_page.dart';
 import 'package:b2b_app/Shared/app_style.dart';
 import 'package:b2b_app/Widgets/hr_line.dart';
 import 'package:b2b_app/Widgets/login_form_card.dart';
-import 'package:b2b_app/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
-import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   @override

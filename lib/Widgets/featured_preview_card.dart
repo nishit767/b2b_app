@@ -10,9 +10,9 @@ class ProductReviewCard extends StatefulWidget {
     this.productRange = 'Product Range',
     this.productSubtitle = '1500+ Sold'})
       : super(key: key);
-  String heading;
-  String productRange;
-  String productSubtitle;
+  final String heading;
+  final String productRange;
+  final String productSubtitle;
 
   @override
   _ProductReviewCardState createState() => _ProductReviewCardState();

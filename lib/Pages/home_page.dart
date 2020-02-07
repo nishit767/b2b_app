@@ -1,11 +1,8 @@
-import 'package:b2b_app/Pages/chat_page.dart';
 import 'package:b2b_app/Widgets/circle_avatar_from_image.dart';
-import 'package:b2b_app/Widgets/drawer.dart';
 import 'package:b2b_app/Widgets/featured_preview_card.dart';
 import 'package:b2b_app/Widgets/popular_circle.dart';
 import 'package:b2b_app/Widgets/sponsored_deals.dart';
 import 'package:carousel_pro/carousel_pro.dart';
-import 'package:fancy_bottom_bar/fancy_bottom_bar.dart';
 import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -51,6 +48,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+// ignore: camel_case_types
 class buildCategoriesList extends StatelessWidget {
   const buildCategoriesList({
     Key key,
