@@ -9,20 +9,22 @@ class CarouselFeaturedProducts extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              fit: BoxFit.cover, image: AssetImage('images/texture_1.jpg'))),
+              fit: BoxFit.cover,
+              image: AssetImage('images/texture_1.jpg'))),
       padding: EdgeInsets.all(10),
-      height: 600,
+      height: 450,
       child: Column(
         children: <Widget>[
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Container(
                 height: 3,
                 width: 100,
                 color: Colors.lightBlue,
               ),
-              Text('Sponsored Deals', style: AppStyle.headingStyle1),
+              Text('Sponsored Deals',
+                  style: AppStyle.headingStyle1.copyWith(color: Colors.white)),
               Container(
                 height: 3,
                 width: 100,
@@ -44,7 +46,7 @@ class CarouselFeaturedProducts extends StatelessWidget {
                         child: Card(
                           elevation: 2,
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Image(
                                 image: new NetworkImage(
@@ -54,7 +56,8 @@ class CarouselFeaturedProducts extends StatelessWidget {
                                 'From Rs.505/Piece',
                                 style: AppStyle.loginPageStyle,
                               ),
-                              Text('Verified Seller'),
+                              Text('Verified Seller',
+                                style: AppStyle.subtitleStyle1,),
                             ],
                           ),
                         )),

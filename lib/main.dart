@@ -1,4 +1,6 @@
-import 'package:b2b_app/Shared/app_style.dart';
+import 'package:b2b_app/Pages/chat_page.dart';
+import 'package:b2b_app/Pages/home_page.dart';
+import 'package:b2b_app/Pages/login_page.dart';
 import 'package:b2b_app/Widgets/circle_avatar_from_image.dart';
 import 'package:b2b_app/Widgets/drawer.dart';
 import 'package:b2b_app/Widgets/featured_preview_card.dart';
@@ -15,12 +17,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/chats': (context) => ChatPage(),
+        '/home': (context) => HomePage(),
+      },
       title: 'B2B App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Color(0xFF6082B5),
       ),
-      home: MyAppScaffold(),
+      home: LoginPage(),
     );
   }
 }
@@ -32,7 +38,7 @@ class MyAppScaffold extends StatefulWidget {
 
 class _MyAppScaffoldState extends State<MyAppScaffold> {
   int currentNavTab = 0;
-
+  List<Widget> pages = [HomePage(), ChatPage()];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -67,81 +73,8 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
           ],
           title: Text('B2B'),
         ),
-        body: HomePage(),
+        body: pages[currentNavTab],
       ),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ListView(
-//        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Container(height: 60, child: buildCategoriesList()),
-          Container(
-              margin: EdgeInsets.symmetric(vertical: 0),
-              height: 200,
-              width: 300,
-              child: Carousel(
-                dotSize: 4,
-                dotSpacing: 10,
-                images: [
-                  Image.asset('images/udaan_top.png'),
-                  Image.asset('images/carousel_1.jpeg'),
-                  Image.asset('images/carousel_2.jpeg')
-                ],
-              )),
-          ProductReviewCard(),
-          getPopularCities(),
-          buildBrandsRowContainer(),
-          ProductReviewCard(),
-          CarouselFeaturedProducts(),
-        ],
-      ),
-    );
-  }
-}
-
-class buildCategoriesList extends StatelessWidget {
-  const buildCategoriesList({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
-      children: <Widget>[
-        getCircularLogo(
-            'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png'),
-        SizedBox(width: 30),
-        getCircularLogo(
-            'https://cdn3.iconfinder.com/data/icons/country-flags-shirts-geometric-simplification/344/flag-country-shirt-jersey_243-512.png'),
-        SizedBox(width: 30),
-        getCircularLogo(
-            'https://cdn3.iconfinder.com/data/icons/country-flags-shirts-geometric-simplification/344/flag-country-shirt-jersey_243-512.png'),
-        SizedBox(width: 30),
-        getCircularLogo(
-            'https://cdn3.iconfinder.com/data/icons/country-flags-shirts-geometric-simplification/344/flag-country-shirt-jersey_243-512.png'),
-        SizedBox(width: 30),
-        getCircularLogo(
-            'https://cdn2.iconfinder.com/data/icons/smashicons-gastronomy-retro-vol-3/58/140_-_Groceries_gastronomy_food_cooking-512.png'),
-        SizedBox(width: 30),
-        getCircularLogo(
-            'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png'),
-        SizedBox(width: 30),
-        getCircularLogo(
-            'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png')
-      ],
-      scrollDirection: Axis.horizontal,
     );
   }
 }

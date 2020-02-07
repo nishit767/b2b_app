@@ -1,8 +1,8 @@
+import 'package:b2b_app/Pages/home_page.dart';
 import 'package:b2b_app/Shared/app_style.dart';
+import 'package:b2b_app/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-
 
 class LoginPage extends StatefulWidget {
   @override
@@ -11,7 +11,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   int currentTab;
-  bool isSignIn=true;
+  bool isSignIn = true;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,10 @@ class _LoginPageState extends State<LoginPage> {
                       Container(
                         width: 10,
                       ),
-                      Text('B2B App',style: AppStyle.loginPageStyle,),
+                      Text(
+                        'B2B App',
+                        style: AppStyle.loginPageStyle,
+                      ),
                       Container(
                         width: 70,
                       ),
@@ -63,19 +66,23 @@ class _LoginPageState extends State<LoginPage> {
                             setState(() {
                               currentTab = index;
                               isSignIn = currentTab == 0;
-
                             });
                           },
 //                          labelColor: Colors.white,
 //                          indicatorColor: Colors.white,
                           tabs: <Widget>[
                             Tab(
-                              child: Text('Sign In',style: AppStyle.loginPageStyle,),
+                              child: Text(
+                                'Sign In',
+                                style: AppStyle.loginPageStyle,
+                              ),
 //                              text: 'Sign In',
-
                             ),
                             Tab(
-                              child: Text('Sign Up',style: AppStyle.loginPageStyle,),
+                              child: Text(
+                                'Sign Up',
+                                style: AppStyle.loginPageStyle,
+                              ),
                             )
                           ],
                         ),
@@ -89,7 +96,6 @@ class _LoginPageState extends State<LoginPage> {
                     height: 400,
                     width: 300,
                     child: GestureDetector(
-
                       child: TabBarView(
                         physics: BouncingScrollPhysics(),
                         children: <Widget>[
@@ -112,7 +118,8 @@ class _LoginPageState extends State<LoginPage> {
                 child: AnimatedSwitcher(
                   duration: Duration(milliseconds: 1100),
                   reverseDuration: Duration(milliseconds: 200),
-                  child: isSignIn?Text(
+                  child: isSignIn
+                      ? Text(
                     'Welcome Back',
                     key: ValueKey(1),
                     style: TextStyle(fontSize: 30, color: Colors.green),
@@ -131,10 +138,9 @@ class _LoginPageState extends State<LoginPage> {
 }
 
 class FormCard extends StatelessWidget {
-  FormCard(
-      this.currentTab, {
-        Key key,
-      }) : super(key: key);
+  FormCard(this.currentTab, {
+    Key key,
+  }) : super(key: key);
   int currentTab;
   bool isSignIn;
 
@@ -151,10 +157,15 @@ class FormCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-              margin: EdgeInsets.symmetric(vertical: 30,horizontal: 10),
-              child: Text('Username',style: TextStyle(fontSize:
-              20),)),
+            margin: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+            child: Text('Username', style: AppStyle.loginPageStyle),
+          ),
           CupertinoTextField(
+            suffix: Icon(
+              Icons.check_circle_outline,
+              color: Colors.red,
+            ),
+            suffixMode: OverlayVisibilityMode.notEditing,
             decoration: BoxDecoration(
                 border: Border.all(
                   color: Colors.green,
@@ -174,6 +185,16 @@ class FormCard extends StatelessWidget {
             clearButtonMode: OverlayVisibilityMode.editing,
             placeholder: 'Enter your Password',
           ),
+          CupertinoButton(
+            child: Text('Log In'),
+            color: Colors.blue,
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MyAppScaffold()));
+            },
+          )
         ],
       )
           : Column(
@@ -190,9 +211,11 @@ class FormCard extends StatelessWidget {
             clearButtonMode: OverlayVisibilityMode.editing,
             placeholder: 'Enter your Username',
           ),
-          Text('Password',style: AppStyle.loginPageStyle,),
+          Text(
+            'Password',
+            style: AppStyle.loginPageStyle,
+          ),
           CupertinoTextField(
-
             obscureText: true,
             decoration: BoxDecoration(
                 border: Border.all(

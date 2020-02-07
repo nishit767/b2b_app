@@ -55,7 +55,7 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
           ),
         ),
         Container(
-          height: _itemNo == 0 ? 200 : 400,
+          height: _itemNo <= 2 ? 200 : 400,
           color: _bgColor,
           child: GridView.count(
               padding: EdgeInsets.all(10),
