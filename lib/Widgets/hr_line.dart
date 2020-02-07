@@ -5,6 +5,6 @@ Widget horizontalLine() => Padding(
       child: Container(
         width: 120,
         height: 1.0,
-        color: Colors.black26.withOpacity(.2),
+        color: Colors.cyan.withOpacity(.8),
       ),
     );

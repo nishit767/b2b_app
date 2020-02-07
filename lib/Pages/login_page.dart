@@ -1,3 +1,4 @@
+import 'package:b2b_app/Models/User.dart';
 import 'package:b2b_app/Pages/home_page.dart';
 import 'package:b2b_app/Shared/app_style.dart';
 import 'package:b2b_app/Widgets/hr_line.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -139,20 +141,27 @@ class _LoginPageState extends State<LoginPage> {
             ),
             Positioned(
               top: 560,
-              left: 10,
-              child: GoogleSignInButton(
-                onPressed: () {
-                  print('h');
-                },
-                darkMode: true,
+              left: -17.5,
+
+              child: Transform.scale(
+                scale: 0.8,
+                child: GoogleSignInButton(
+                  onPressed: () {
+                    print('h');
+                  },
+                  darkMode: true,
+                ),
               ),
             ),
             Positioned(
               top: 560,
-              left: 20,
-              child: FacebookSignInButton(onPressed: () {
-                print('h');
-              }),
+              left: 155,
+              child: Transform.scale(
+                scale: 0.8,
+                child: FacebookSignInButton(onPressed: () {
+                  print('h');
+                }),
+              ),
             )
           ],
         ),

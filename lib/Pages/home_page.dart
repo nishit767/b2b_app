@@ -6,6 +6,7 @@ import 'package:b2b_app/Widgets/popular_circle.dart';
 import 'package:b2b_app/Widgets/sponsored_deals.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:fancy_bottom_bar/fancy_bottom_bar.dart';
+import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,10 @@ class _HomePageState extends State<HomePage> {
       child: ListView(
         padding: EdgeInsets.only(bottom: 10),
         children: <Widget>[
+          Container(
+              height: 90,
+              width: 150,
+              child: SearchBar()),
           Container(height: 60, child: buildCategoriesList()),
           Container(
               margin: EdgeInsets.symmetric(vertical: 0),
