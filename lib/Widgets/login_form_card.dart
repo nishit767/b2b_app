@@ -37,10 +37,10 @@ class _FormCardState extends State<FormCard> {
       child: Card(
         elevation: 0.5,
         child: AnimatedSwitcher(
-          duration: Duration(milliseconds: 800),
+          duration: Duration(milliseconds: 3800),
           child: widget.isSignIn
               ? Column(
-                  key: UniqueKey(),
+            key: ValueKey(1),
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -75,11 +75,12 @@ class _FormCardState extends State<FormCard> {
 //              ),
 //              suffixMode: OverlayVisibilityMode.always,
                         decoration: InputDecoration(
+                            labelText: 'Enter your Username',
                             border: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.green,
-                          ),
-                        )),
+                              borderSide: BorderSide(
+                                color: Colors.green,
+                              ),
+                            )),
 //              clearButtonMode: isDoneEditing
 //                  ? OverlayVisibilityMode.never
 //                  : OverlayVisibilityMode.editing,
@@ -111,10 +112,12 @@ class _FormCardState extends State<FormCard> {
 //                        onSaved: (v) {},
                           obscureText: true,
                           decoration: InputDecoration(
+                              labelText: 'Enter your Password',
+
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
-                            color: Colors.green,
-                          )))),
+                                    color: Colors.green,
+                                  )))),
                     ),
                     Row(
                       children: <Widget>[
@@ -150,7 +153,7 @@ class _FormCardState extends State<FormCard> {
                   ],
                 )
               : Column(
-                  key: UniqueKey(),
+            key: ValueKey(2),
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -176,10 +179,12 @@ class _FormCardState extends State<FormCard> {
                             user.setEmail(v);
                           },
                           decoration: InputDecoration(
+                              labelText: 'Enter an E-mail',
+
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
-                            color: Colors.green,
-                          )))),
+                                    color: Colors.green,
+                                  )))),
                     ),
                     Container(
                       margin: EdgeInsets.only(
@@ -203,10 +208,11 @@ class _FormCardState extends State<FormCard> {
                             user.setUserName(v);
                           },
                           decoration: InputDecoration(
+                              labelText: 'Enter an Username',
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
-                            color: Colors.green,
-                          )))),
+                                    color: Colors.green,
+                                  )))),
                     ),
                     Container(
                       margin: EdgeInsets.only(
@@ -229,12 +235,15 @@ class _FormCardState extends State<FormCard> {
                           onSaved: (v) {
                             user.setPassword(v);
                           },
+
                           obscureText: true,
                           decoration: InputDecoration(
+                              labelText: 'Enter an Password (Alphanumeric)',
+
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
-                            color: Colors.green,
-                          )))),
+                                    color: Colors.green,
+                                  )))),
                     ),
                     Container(
                       margin: EdgeInsets.only(left: 100),
@@ -253,7 +262,7 @@ class _FormCardState extends State<FormCard> {
                             if (form.validate()) {
                               form.save();
                               Scaffold.of(context).showSnackBar(
-                                  SnackBar(content: Text('Logging you in ')));
+                                  SnackBar(content: Text('Signing you up')));
                             }
 //                                Navigator.pushReplacement(
 //                                    context,
