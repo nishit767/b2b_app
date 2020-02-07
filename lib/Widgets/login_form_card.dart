@@ -32,15 +32,27 @@ class _FormCardState extends State<FormCard> {
 
     print(widget.isSignIn);
 
-    return Form(
-      key: formKey,
-      child: Card(
-        elevation: 0.5,
-        child: AnimatedSwitcher(
-          duration: Duration(milliseconds: 3800),
-          child: widget.isSignIn
-              ? Column(
-            key: ValueKey(1),
+    return Card(
+      elevation: 0.5,
+      child: AnimatedSwitcher(
+        transitionBuilder: (child, animation) {
+          final offsetAnimation =
+          Tween<Offset>(begin: Offset(0.0, -0.3), end: Offset(0.0, 0.02))
+              .animate(animation);
+          return ClipRect(
+            clipBehavior: Clip.antiAlias,
+            child: SlideTransition(
+              position: offsetAnimation,
+              child: child,
+            ),
+          );
+        },
+        duration: Duration(milliseconds: 400),
+        child: widget.isSignIn
+            ? Form(
+          key: formKey,
+          child: Column(
+            key: UniqueKey(),
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -113,7 +125,6 @@ class _FormCardState extends State<FormCard> {
                           obscureText: true,
                           decoration: InputDecoration(
                               labelText: 'Enter your Password',
-
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Colors.green,
@@ -151,15 +162,18 @@ class _FormCardState extends State<FormCard> {
                       ],
                     ),
                   ],
-                )
-              : Column(
-            key: ValueKey(2),
+          ),
+        )
+            : Form(
+          key: formKey,
+          child: Column(
+            key: UniqueKey(),
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
                       margin: EdgeInsets.only(
-                        top: 30,
+                        top: 10,
                         bottom: 10,
                         left: 10,
                       ),
@@ -180,7 +194,6 @@ class _FormCardState extends State<FormCard> {
                           },
                           decoration: InputDecoration(
                               labelText: 'Enter an E-mail',
-
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Colors.green,
@@ -235,11 +248,9 @@ class _FormCardState extends State<FormCard> {
                           onSaved: (v) {
                             user.setPassword(v);
                           },
-
                           obscureText: true,
                           decoration: InputDecoration(
                               labelText: 'Enter an Password (Alphanumeric)',
-
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Colors.green,
