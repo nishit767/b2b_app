@@ -36,6 +36,7 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
       child: Scaffold(
         resizeToAvoidBottomPadding: true,
         bottomNavigationBar: FancyBottomBar(
+          height: 50,
           selectedPosition: currentNavTab,
           indicatorColor: Colors.red,
           selectedColor: Colors.amber,
@@ -91,7 +92,8 @@ class _HomePageState extends State<HomePage> {
                   Image.asset('images/carousel_2.jpeg')
                 ],
               )),
-          ProductReviewCard()
+          ProductReviewCard(),
+          ProductReviewCard(),
         ],
       ),
     );
