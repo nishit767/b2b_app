@@ -3,6 +3,7 @@ import 'package:b2b_app/Models/Seller.dart';
 import 'package:b2b_app/Models/User.dart';
 import 'package:b2b_app/Pages/chat_page.dart';
 import 'package:b2b_app/Pages/home_page.dart';
+import 'package:b2b_app/Pages/loading_page.dart';
 import 'package:b2b_app/Pages/login_page.dart';
 import 'package:b2b_app/Pages/notification_page.dart';
 import 'package:b2b_app/Widgets/drawer.dart';
@@ -22,6 +23,8 @@ class MyApp extends StatelessWidget {
         '/home': (context) => HomePage(),
         '/login': (context) => LoginPage(),
         '/notif': (context) => NotifPage(),
+        '/scaffold': (context) => MyAppScaffold(),
+        '/loading': (context) => LoadingPage(),
       },
       title: 'B2B App',
       debugShowCheckedModeBanner: false,
