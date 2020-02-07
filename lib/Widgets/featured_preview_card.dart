@@ -5,9 +5,14 @@ import 'package:b2b_app/Shared/random_color_gen.dart';
 import 'dart:math';
 
 class ProductReviewCard extends StatefulWidget {
-  ProductReviewCard({
-    Key key,
-  }) : super(key: key);
+  ProductReviewCard({Key key,
+    this.heading = 'Featured Products',
+    this.productRange = 'Product Range',
+    this.productSubtitle = '1500+ Sold'})
+      : super(key: key);
+  String heading;
+  String productRange;
+  String productSubtitle;
 
   @override
   _ProductReviewCardState createState() => _ProductReviewCardState();
@@ -32,7 +37,7 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
                 width: 10,
               ),
               Text(
-                'Featured Products',
+                widget.heading,
                 style: AppStyle.headingStyle1,
               ),
               Container(
@@ -66,8 +71,8 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
                           fallbackHeight: 140,
                           fallbackWidth: 100,
                         ),
-                        Text('Product Range'),
-                        Text('1500+ sold')
+                        Text(widget.productRange),
+                        Text(widget.productSubtitle)
                       ],
                     ),
                   )

@@ -1,5 +1,8 @@
 import 'package:b2b_app/Shared/app_style.dart';
+import 'package:b2b_app/Widgets/circle_avatar_from_image.dart';
+import 'package:b2b_app/Widgets/drawer.dart';
 import 'package:b2b_app/Widgets/featured_preview_card.dart';
+import 'package:b2b_app/Widgets/popular_circle.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:fancy_bottom_bar/fancy_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
@@ -52,7 +55,7 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
             FancyBottomItem(title: Text(''), icon: Icon(Icons.home)),
           ],
         ),
-        drawer: Drawer(child: Icon(Icons.add)),
+        drawer: NavDrawer(),
         appBar: AppBar(
           actions: <Widget>[
             IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
@@ -93,6 +96,8 @@ class _HomePageState extends State<HomePage> {
                 ],
               )),
           ProductReviewCard(),
+          getPopularCities(),
+          buildBrandsRowContainer(),
           ProductReviewCard(),
         ],
       ),
@@ -109,7 +114,6 @@ class buildCategoriesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       shrinkWrap: true,
-//      padding: EdgeInsets.fromLTRB(10.0, 5.0, 0, 0),
       children: <Widget>[
         getCircularLogo(
             'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png'),
@@ -135,14 +139,4 @@ class buildCategoriesList extends StatelessWidget {
       scrollDirection: Axis.horizontal,
     );
   }
-}
-
-Widget getCircularLogo(String url) {
-  return Container(
-      height: 40.0,
-      width: 40.0,
-      decoration: new BoxDecoration(
-          image: new DecorationImage(
-        image: new NetworkImage('$url'),
-      )));
 }

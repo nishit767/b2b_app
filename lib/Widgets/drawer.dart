@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-      home: Draw(),
-    ));
 
-class Draw extends StatelessWidget {
+class NavDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: SizedBox(
+    return SizedBox(
         width: 250.0,
         child: Drawer(
           child: Container(
@@ -211,10 +207,8 @@ class Draw extends StatelessWidget {
             ),
           ),
         ),
-      ),
-      appBar: AppBar(
-        title: Text('Drawer'),
-      ),
+
+
     );
   }
 }

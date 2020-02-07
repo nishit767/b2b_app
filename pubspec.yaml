@@ -50,6 +50,10 @@ flutter:
     - images/udaan_top.png
     - images/carousel_1.jpeg
     - images/carousel_2.jpeg
+    - images/texture_1.jpg
+    - images/texture_2.jpg
+    - images/texture_3.jpg
+    - images/texture_4.jpg
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
