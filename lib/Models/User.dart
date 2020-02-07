@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class User extends ChangeNotifier {
   bool isValidUser = false;
   bool isValidPass = false;
+
+//  bool isFormDoneEditing = false;
   String emailId;
   String userName;
   String password;
@@ -10,6 +12,7 @@ class User extends ChangeNotifier {
     backgroundImage: NetworkImage('https://picsum.photos/100/100'),
     radius: 50,
   );
+
 
   setPassStat(bool b) {
     isValidPass = b;
