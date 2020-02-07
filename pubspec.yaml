@@ -54,6 +54,8 @@ flutter:
     - images/texture_2.jpg
     - images/texture_3.jpg
     - images/texture_4.jpg
+    - images/texture_5.jpg
+    - images/texture_6.jpg
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

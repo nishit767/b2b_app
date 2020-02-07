@@ -23,8 +23,9 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
 
   @override
   Widget build(BuildContext context) {
+    int _itemNo = Random().nextInt(12) + 2;
     Color _bgColor =
-        randomColor.gencolors[Random().nextInt(50)].withOpacity(0.5);
+    randomColor.gencolors[Random().nextInt(50)].withOpacity(0.5);
     return Column(
       children: <Widget>[
         Container(
@@ -54,7 +55,7 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
           ),
         ),
         Container(
-          height: 400,
+          height: _itemNo == 0 ? 200 : 400,
           color: _bgColor,
           child: GridView.count(
               padding: EdgeInsets.all(10),
@@ -62,8 +63,9 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
               mainAxisSpacing: 5,
               crossAxisSpacing: 5,
               children: [
-                for (int i = 1; i <= 4; i++)
+                for (int i = 2; i <= _itemNo; i++)
                   Card(
+                    elevation: 5,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
