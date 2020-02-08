@@ -11,7 +11,7 @@ class NavDrawer extends StatefulWidget {
 class _NavDrawerState extends State<NavDrawer> {
   @override
   Widget build(BuildContext context) {
-    var user = locator<User>();
+    var user = Provider.of<User>(context);
     return SizedBox(
         width: 250.0,
         child: Drawer(

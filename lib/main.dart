@@ -17,16 +17,24 @@ import 'package:provider/provider.dart';
 
 //draggable floating action button
 void main() {
-  setupLocator();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
-  var user = locator<User>();
 
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(providers: [
+      ChangeNotifierProvider<User>(
+        create: (context) => User(),
+      ),
+      ChangeNotifierProvider<Seller>(
+        create: (context) => Seller(),
+      ),
+      ChangeNotifierProvider<ProductStore>(
+        create: (context) => ProductStore(),
+      ),
+    ], child: MaterialApp(
       routes: {
         '/chats': (context) => ChatPage(),
         '/home': (context) => HomePage(),
@@ -42,17 +50,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(0xFF6082B5),
       ),
-      home: MultiProvider(providers: [
-        ChangeNotifierProvider<User>(
-          create: (context) => user,
-        ),
-        ChangeNotifierProvider<Seller>(
-          create: (context) => Seller(),
-        ),
-        ChangeNotifierProvider<ProductStore>(
-          create: (context) => ProductStore(),
-        ),
-      ], child: LoginPage()),
+      home: LoginPage(),
+    ),
     );
   }
 }
@@ -65,7 +64,6 @@ class MyAppScaffold extends StatefulWidget {
 class _MyAppScaffoldState extends State<MyAppScaffold> {
   int currentNavTab = 0;
   List<Widget> pages = [HomePage(), ChatPage(), WishView(), ProfileView()];
-  var user = locator<User>();
 
   @override
   Widget build(BuildContext context) {
@@ -93,8 +91,8 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
                 title: Text('My Profile'), icon: Icon(Icons.account_circle))
           ],
         ),
-        drawer: ChangeNotifierProvider<User>(
-            create: (context) => user, child: NavDrawer()),
+        drawer: /*ChangeNotifierProvider<User>(
+            create: (context) => user, child:*/ NavDrawer(),
         appBar: AppBar(
           actions: <Widget>[
             IconButton(
