@@ -12,7 +12,7 @@ A new Flutter application.
  - images of patterns and abstract shapes for backgrounds ,
  - search bars,
  - specific product details,
- - make app responsive to different device sizes,
+ - make app responsive to different device screen sizes,
  - general info pages,
  - seller details,
  - my orders,
