@@ -25,15 +25,18 @@ class _NavDrawerState extends State<NavDrawer> {
             child: Transform.scale(
               scale: 0.97,
               child: ListView(
+
                 shrinkWrap: true,
                 padding: EdgeInsets.all(5),
                 children: <Widget>[
                   //header
                   UserAccountsDrawerHeader(
-                    accountName: Text('Username'),
+                    accountName: Text('Username:' + user.userName),
                     accountEmail: Text(user.emailId),
                     currentAccountPicture: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/profile');
+                      },
                       icon: Icon(
                         Icons.account_circle,
                         color: Colors.white,
@@ -226,7 +229,8 @@ class _NavDrawerState extends State<NavDrawer> {
                         ),
                       ),
                     ),
-                  ), Divider(
+                  ),
+                  Divider(
                     color: Colors.yellow[500],
                   ),
                   InkWell(
@@ -253,7 +257,6 @@ class _NavDrawerState extends State<NavDrawer> {
                       ),
                     ),
                   ),
-
                 ],
               ),
             ),
