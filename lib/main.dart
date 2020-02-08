@@ -9,16 +9,22 @@ import 'package:b2b_app/Pages/notification_page.dart';
 import 'package:b2b_app/Pages/profile_page.dart';
 import 'package:b2b_app/Pages/shortlist_page.dart';
 import 'package:b2b_app/Widgets/drawer.dart';
+import 'package:b2b_app/locator.dart';
 import 'package:fancy_bottom_bar/fancy_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 //draggable floating action button
-void main() => runApp(MyApp());
+void main() {
+  setupLocator();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
+  var user = locator<User>();
+
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
@@ -38,7 +44,7 @@ class MyApp extends StatelessWidget {
       ),
       home: MultiProvider(providers: [
         ChangeNotifierProvider<User>(
-          create: (context) => User(),
+          create: (context) => user,
         ),
         ChangeNotifierProvider<Seller>(
           create: (context) => Seller(),
@@ -59,6 +65,7 @@ class MyAppScaffold extends StatefulWidget {
 class _MyAppScaffoldState extends State<MyAppScaffold> {
   int currentNavTab = 0;
   List<Widget> pages = [HomePage(), ChatPage(), WishView(), ProfileView()];
+  var user = locator<User>();
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +93,8 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
                 title: Text('My Profile'), icon: Icon(Icons.account_circle))
           ],
         ),
-        drawer: NavDrawer(),
+        drawer: ChangeNotifierProvider<User>(
+            create: (context) => user, child: NavDrawer()),
         appBar: AppBar(
           actions: <Widget>[
             IconButton(

@@ -20,7 +20,7 @@ class _ChatPageState extends State<ChatPage> {
         child: Column(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(top: 25, bottom: 10),
+              margin: EdgeInsets.only(top: 15, bottom: 10),
               padding: EdgeInsets.only(left: 10, right: 10),
               child: CupertinoTextField(
                 cursorColor: Colors.red,
