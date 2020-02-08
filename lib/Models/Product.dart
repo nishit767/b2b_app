@@ -8,6 +8,7 @@ class Product extends ChangeNotifier {
   String category = 'Product Range';
   String description = 'Product Description';
   bool isFreeDelivery = true;
+  bool isFavourite = false;
   Seller seller;
   int amountSold = 1500;
   double rating;
@@ -15,7 +16,8 @@ class Product extends ChangeNotifier {
   String imageURL = 'https://picsum.photos/200/100';
 
   Product(this.imageURL, this.amountSold, this.category, this.rating,
-      this.price, {this.description, this.isFreeDelivery, this.seller});
+      this.price,
+      {this.description, this.isFreeDelivery, this.seller, this.isFavourite});
 }
 
 class ProductStore extends ChangeNotifier {
