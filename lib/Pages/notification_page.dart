@@ -7,7 +7,7 @@ class NotifPage extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: true,
         actions: <Widget>[
-          IconButton(onPressed: null, icon: Icon(Icons.add_shopping_cart)),
+          IconButton(onPressed: (){}, icon: Icon(Icons.add_shopping_cart)),
         ],
         backgroundColor: Colors.blue[700],
         title: Text('Notifications'),

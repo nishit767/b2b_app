@@ -52,7 +52,9 @@ class _NavDrawerState extends State<NavDrawer> {
 
                   //body
                   InkWell(
-                    onTap: () {Navigator.pushNamed(context, '/home');},
+                    onTap: () {
+                      Navigator.pushNamed(context, '/home');
+                      },
                     child: ListTile(
                       leading: Icon(
                         Icons.home,
@@ -258,7 +260,6 @@ class _NavDrawerState extends State<NavDrawer> {
                       ),
                     ),
                   ),
-
                 ],
               ),
             ),
