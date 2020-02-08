@@ -22,7 +22,6 @@ class _LoginPageState extends State<LoginPage> {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         resizeToAvoidBottomPadding: true,
-//        backgroundColor: Colors.white,
         body: Theme(
           data: ThemeData(
               textTheme: TextTheme(

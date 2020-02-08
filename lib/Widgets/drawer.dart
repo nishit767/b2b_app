@@ -1,4 +1,7 @@
+import 'package:b2b_app/Models/User.dart';
+import 'package:b2b_app/locator.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class NavDrawer extends StatefulWidget {
   @override
@@ -8,6 +11,7 @@ class NavDrawer extends StatefulWidget {
 class _NavDrawerState extends State<NavDrawer> {
   @override
   Widget build(BuildContext context) {
+    var user = Provider.of<User>(context);
     return SizedBox(
         width: 250.0,
         child: Drawer(
@@ -30,7 +34,7 @@ class _NavDrawerState extends State<NavDrawer> {
                       Navigator.pushNamed(context, '/profile');
                       },
                     accountName: Text('Username'),
-                    accountEmail: Text('user_id@gmail.com'),
+                    accountEmail: Text(user.emailId),
                     currentAccountPicture: IconButton(
                       onPressed: () {
                         Navigator.pushNamed(context, '/profile');

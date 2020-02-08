@@ -9,18 +9,32 @@ import 'package:b2b_app/Pages/notification_page.dart';
 import 'package:b2b_app/Pages/profile_page.dart';
 import 'package:b2b_app/Pages/shortlist_page.dart';
 import 'package:b2b_app/Widgets/drawer.dart';
+import 'package:b2b_app/locator.dart';
 import 'package:fancy_bottom_bar/fancy_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 //draggable floating action button
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
+
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(providers: [
+      ChangeNotifierProvider<User>(
+        create: (context) => User(),
+      ),
+      ChangeNotifierProvider<Seller>(
+        create: (context) => Seller(),
+      ),
+      ChangeNotifierProvider<ProductStore>(
+        create: (context) => ProductStore(),
+      ),
+    ], child: MaterialApp(
       routes: {
         '/chats': (context) => ChatPage(),
         '/home': (context) => HomePage(),
@@ -36,17 +50,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(0xFF6082B5),
       ),
-      home: MultiProvider(providers: [
-        ChangeNotifierProvider<User>(
-          create: (context) => User(),
-        ),
-        ChangeNotifierProvider<Seller>(
-          create: (context) => Seller(),
-        ),
-        ChangeNotifierProvider<ProductStore>(
-          create: (context) => ProductStore(),
-        ),
-      ], child: LoginPage()),
+      home: LoginPage(),
+    ),
     );
   }
 }
@@ -86,7 +91,8 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
                 title: Text('My Profile'), icon: Icon(Icons.account_circle))
           ],
         ),
-        drawer: NavDrawer(),
+        drawer: /*ChangeNotifierProvider<User>(
+            create: (context) => user, child:*/ NavDrawer(),
         appBar: AppBar(
           actions: <Widget>[
             IconButton(

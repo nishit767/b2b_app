@@ -6,9 +6,9 @@ class User extends ChangeNotifier {
   int id;
   String name;
 //  bool isFormDoneEditing = false;
-  String emailId;
-  String userName;
-  String password;
+  String emailId = '';
+  String userName = '';
+  String password = '';
   String imageUrl;
   CircleAvatar userAvatar = CircleAvatar(
     backgroundImage: NetworkImage('https://picsum.photos/100/100'),
