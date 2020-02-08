@@ -1,4 +1,6 @@
+import 'package:b2b_app/Models/Product.dart';
 import 'package:b2b_app/Shared/app_style.dart';
+import 'package:b2b_app/locator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:b2b_app/Shared/random_color_gen.dart';
@@ -20,6 +22,13 @@ class ProductReviewCard extends StatefulWidget {
 
 class _ProductReviewCardState extends State<ProductReviewCard> {
   var randomColor = ColorRand();
+  var productStore = locator<ProductStore>();
+
+
+  @override
+  void initState() {
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +54,8 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
                 width: 100,
               ),
               RaisedButton(
-                  color: Colors.black,
-                  onPressed: null,
+                  color: Colors.blue,
+                  onPressed: () {},
                   child: Text('View All',
                       style: TextStyle(
                         color: Colors.white,
@@ -69,12 +78,25 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        Placeholder(
-                          fallbackHeight: 140,
-                          fallbackWidth: 100,
+                        Image.network(
+                          productStore.products
+                              .elementAt(Random().nextInt(50))
+                              .imageURL,
+                          height: 140,
+                          width: 200,
                         ),
-                        Text(widget.productRange),
-                        Text(widget.productSubtitle)
+//                        Placeholder(
+//                          fallbackHeight: 140,
+//                          fallbackWidth: 100,
+//                        ),
+                        Text(productStore.products
+                            .elementAt(Random().nextInt(50))
+                            .category),
+                        Text(productStore.products
+                            .elementAt(Random().nextInt(50))
+                            .amountSold
+                            .toString() +
+                            ' Sold')
                       ],
                     ),
                   )

@@ -17,6 +17,7 @@ import 'package:provider/provider.dart';
 
 //draggable floating action button
 void main() {
+  setupLocator();
   runApp(MyApp());
 }
 

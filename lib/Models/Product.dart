@@ -14,14 +14,15 @@ class Product extends ChangeNotifier {
 }
 
 class ProductStore extends ChangeNotifier {
-  static List<Product> products;
-  static List<String> categories = ['IT', 'clothes', 'luggage', 'office'];
+  List<Product> products;
+  List<String> categories = ['IT', 'Fashion', 'Luggage', 'Office'];
 
   ProductStore() {
     products = [];
     for (int i = 1; i <= 50; i++) {
       products.add(Product(
-          'http://placeimg.com/400/200/tech', Random().nextInt(50) * 20,
+          'https://i.picsum.photos/id/$i/300/300.jpg',
+          Random().nextInt(50) * 20,
           categories[Random().nextInt(3)],
           Random().nextDouble() * 5, Random().nextDouble() * 10000));
     }

@@ -169,6 +169,7 @@ class _FormCardState extends State<FormCard> {
                             color: Colors.transparent,
                             child: InkWell(
                                 onTap: () {
+                                  loadMainPage(context);
                                   final form = formKey.currentState;
                                   if (form.validate()) {
                                     form.save();
@@ -339,7 +340,7 @@ class _FormCardState extends State<FormCard> {
                                     child: Text('Sign Up',
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontFamily: "Poppins-Bold",
+                                            fontFamily: "Lato",
                                             fontSize: 18,
                                             letterSpacing: 1.0)))))))
               ],
