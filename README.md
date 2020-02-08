@@ -20,5 +20,4 @@ A new Flutter application.
 ## Category List Basic Wireframe
 
 
-![Untitledshoeslist](https://user-images.githubusercontent.com/57319246/74088518-5a26fb80-4abd-11ea-8bfe-5d722e8f00e8.jpg)
-<hr>
+![shoeslist](https://user-images.githubusercontent.com/57319246/74089088-762d9b80-4ac3-11ea-9370-3b0793f1db85.jpg)
