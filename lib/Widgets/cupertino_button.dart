@@ -1,8 +1,7 @@
 import 'package:b2b_app/Shared/app_style.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart'
-    ''
-    '';
+import 'package:flutter/material.dart';
+
 
 class CustomCupertinoButton extends StatelessWidget {
   CustomCupertinoButton(
@@ -10,7 +9,7 @@ class CustomCupertinoButton extends StatelessWidget {
     Key key,
     @required this.formKey,
   }) : super(key: key);
-  Function function;
+  final Function function;
   final GlobalKey<FormState> formKey;
 
   @override

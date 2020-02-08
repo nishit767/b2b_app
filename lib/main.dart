@@ -6,12 +6,15 @@ import 'package:b2b_app/Pages/home_page.dart';
 import 'package:b2b_app/Pages/loading_page.dart';
 import 'package:b2b_app/Pages/login_page.dart';
 import 'package:b2b_app/Pages/notification_page.dart';
+import 'package:b2b_app/Pages/profile_page.dart';
+import 'package:b2b_app/Pages/shortlist_page.dart';
 import 'package:b2b_app/Widgets/drawer.dart';
 import 'package:fancy_bottom_bar/fancy_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+//draggable floating action button
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -25,6 +28,8 @@ class MyApp extends StatelessWidget {
         '/notif': (context) => NotifPage(),
         '/scaffold': (context) => MyAppScaffold(),
         '/loading': (context) => LoadingPage(),
+        '/wishlist': (context) => WishPage(),
+        '/profile': (context) => ProfilePage(),
       },
       title: 'B2B App',
       debugShowCheckedModeBanner: false,
@@ -53,7 +58,7 @@ class MyAppScaffold extends StatefulWidget {
 
 class _MyAppScaffoldState extends State<MyAppScaffold> {
   int currentNavTab = 0;
-  List<Widget> pages = [HomePage(), ChatPage()];
+  List<Widget> pages = [HomePage(), ChatPage(), WishView(), ProfileView()];
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,6 @@ class NotifPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
         actions: <Widget>[
           IconButton(onPressed: null, icon: Icon(Icons.add_shopping_cart)),
         ],

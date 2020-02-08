@@ -1,6 +1,4 @@
-import 'package:b2b_app/Models/User.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class NavDrawer extends StatefulWidget {
   @override
@@ -31,7 +29,7 @@ class _NavDrawerState extends State<NavDrawer> {
                     accountName: Text('Username'),
                     accountEmail: Text('user_id@gmail.com'),
                     currentAccountPicture: IconButton(
-                      onPressed: null,
+                      onPressed: () {},
                       icon: Icon(
                         Icons.account_circle,
                         color: Colors.white,

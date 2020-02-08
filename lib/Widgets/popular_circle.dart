@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 Container buildBrandsRowContainer({List urls}) {
-  List<String> imageUrls = urls;
+//  List<String> imageUrls = urls;
   return Container(
     padding: EdgeInsets.only(bottom: 20),
     decoration: BoxDecoration(

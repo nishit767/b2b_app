@@ -33,7 +33,10 @@ class _ChatPageState extends State<ChatPage> {
                     )),
               ),
             ),
-            Container(height: 30, child: chatTabBar()),
+            Container(
+                color: colorRand.gencolors.elementAt(tabpos * 10 % 49)
+                    .withOpacity(0.15),
+                height: 30, child: chatTabBar()),
             Divider(
               thickness: 0.6,
             ),

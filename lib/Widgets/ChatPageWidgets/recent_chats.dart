@@ -5,10 +5,10 @@ import 'package:b2b_app/Shared/random_color_gen.dart';
 import 'dart:math';
 
 class RecentChats extends StatelessWidget {
-  var colorRand = ColorRand();
 
   @override
   Widget build(BuildContext context) {
+    var colorRand = ColorRand();
     return Expanded(
       child: Container(
         decoration: BoxDecoration(
@@ -39,7 +39,7 @@ class RecentChats extends StatelessWidget {
                 child: Container(
                   margin: EdgeInsets.only(top: 5.0, bottom: 5.0, right: 20.0),
                   padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                  EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
                   decoration: BoxDecoration(
                     color: chat.unread ? Color(0xFFFFEFEE) : Colors.white,
                     borderRadius: BorderRadius.only(
@@ -98,24 +98,24 @@ class RecentChats extends StatelessWidget {
                           SizedBox(height: 5.0),
                           chat.unread
                               ? Container(
-                                  width: 40.0,
-                                  height: 20.0,
-                                  decoration: BoxDecoration(
-                                    color: colorRand
-                                        .gencolors[Random().nextInt(50)]
-                                        .withOpacity(0.7),
-                                    borderRadius: BorderRadius.circular(30.0),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    'NEW',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                )
+                            width: 40.0,
+                            height: 20.0,
+                            decoration: BoxDecoration(
+                              color: colorRand
+                                  .gencolors[Random().nextInt(50)]
+                                  .withOpacity(0.7),
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              'NEW',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          )
                               : SizedBox.shrink(),
                         ],
                       ),

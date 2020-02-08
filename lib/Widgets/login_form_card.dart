@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:b2b_app/Models/User.dart';
 import 'package:b2b_app/Shared/app_style.dart';
-import 'package:b2b_app/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -13,7 +11,7 @@ class FormCard extends StatefulWidget {
   FormCard(this.isSignIn, {
     Key key,
   }) : super(key: key);
-  bool isSignIn;
+  final bool isSignIn;
 
   @override
   _FormCardState createState() => _FormCardState();

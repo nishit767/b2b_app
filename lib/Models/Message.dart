@@ -121,6 +121,13 @@ List<Message> chats = [
 List<Message> messages = [
   Message(
     sender: james,
+    time: '11:12 PM',
+    text: 'Hey, how\'s it going? What did you do today?',
+    isLiked: false,
+    unread: true,
+  ),
+  Message(
+    sender: james,
     time: '5:30 PM',
     text: 'Cool, great doing business with you :)',
     isLiked: true,
