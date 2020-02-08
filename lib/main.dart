@@ -94,7 +94,7 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
                   Navigator.pushNamed(context, '/notif');
                 },
                 icon: Icon(Icons.notifications)),
-            IconButton(onPressed: null, icon: Icon(Icons.add_shopping_cart)),
+            IconButton(onPressed: (){}, icon: Icon(Icons.add_shopping_cart)),
           ],
           title: Text('B2B'),
         ),

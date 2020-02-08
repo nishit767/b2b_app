@@ -26,10 +26,15 @@ class _NavDrawerState extends State<NavDrawer> {
                 children: <Widget>[
                   //header
                   UserAccountsDrawerHeader(
+                    onDetailsPressed: () {
+                      Navigator.pushNamed(context, '/profile');
+                      },
                     accountName: Text('Username'),
                     accountEmail: Text('user_id@gmail.com'),
                     currentAccountPicture: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/profile');
+                      },
                       icon: Icon(
                         Icons.account_circle,
                         color: Colors.white,
@@ -43,7 +48,7 @@ class _NavDrawerState extends State<NavDrawer> {
 
                   //body
                   InkWell(
-                    onTap: () {},
+                    onTap: () {Navigator.pushNamed(context, '/home');},
                     child: ListTile(
                       leading: Icon(
                         Icons.home,
