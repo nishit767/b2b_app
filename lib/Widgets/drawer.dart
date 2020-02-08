@@ -1,4 +1,6 @@
+import 'package:b2b_app/Models/User.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class NavDrawer extends StatefulWidget {
   @override
@@ -19,7 +21,7 @@ class _NavDrawerState extends State<NavDrawer> {
                   colors: [Colors.blue, Colors.red]),
             ),
             child: Transform.scale(
-              scale: 0.9,
+              scale: 0.97,
               child: ListView(
                 shrinkWrap: true,
                 padding: EdgeInsets.all(5),
@@ -227,6 +229,8 @@ class _NavDrawerState extends State<NavDrawer> {
                   ),
                   InkWell(
                     onTap: () {
+//                      user.isValidUser=user.isValidPass=false;
+//                      user.userName=user.password=null;
                       Navigator.pop(context);
                       Navigator.pop(context);
                     },

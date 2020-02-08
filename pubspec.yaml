@@ -61,6 +61,13 @@ flutter:
     - images/texture_6.jpg
     - images/texture_7.jpg
     - images/city.png
+    - images/user_profile_pics/greg.jpg
+    - images/user_profile_pics/james.jpg
+    - images/user_profile_pics/john.jpg
+    - images/user_profile_pics/olivia.jpg
+    - images/user_profile_pics/sam.jpg
+    - images/user_profile_pics/sophia.jpg
+    - images/user_profile_pics/steven.jpg
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

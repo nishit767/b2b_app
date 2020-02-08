@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:b2b_app/Models/User.dart';
 import 'package:b2b_app/Shared/app_style.dart';
@@ -20,11 +21,7 @@ class FormCard extends StatefulWidget {
 
 class _FormCardState extends State<FormCard> {
   bool isDoneEditing1 = false;
-  bool isDoneEditing2 = false;
-  bool isDoneEditing3 = false;
-  bool isDoneEditing4 = false;
-  bool isDoneEditing5 = false;
-
+  String pass = '';
   @override
   Widget build(BuildContext context) {
     var formKey = GlobalKey<FormState>();
@@ -48,7 +45,6 @@ class _FormCardState extends State<FormCard> {
                 blurRadius: 10.0),
           ]),
       child: Card(
-
 //        elevation: 0.5,
         child: AnimatedSwitcher(
           transitionBuilder: (child, animation) {
@@ -78,7 +74,8 @@ class _FormCardState extends State<FormCard> {
                     bottom: 10,
                     left: 10,
                   ),
-                  child: Text('Username', style: AppStyle.loginPageStyle),
+                  child: Text(
+                      'Username:', style: AppStyle.loginPageHeadingStyle),
                 ),
                 Container(
                   height: 40,
@@ -88,6 +85,7 @@ class _FormCardState extends State<FormCard> {
                         user.setUserStat(true);
                       print(v.toString());
                       if (v.isEmpty) return 'Username cannot be Empty!';
+
                       if (!user.isValidUser) return 'Wrong Username';
                       return null;
                     },
@@ -102,8 +100,11 @@ class _FormCardState extends State<FormCard> {
 //                color: isDoneEditing ? Colors.green : Colors.red,
 //              ),
 //              suffixMode: OverlayVisibilityMode.always,
+
                     decoration: InputDecoration(
+
                         labelText: 'Enter your Username',
+
                         border: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.green,
@@ -121,20 +122,22 @@ class _FormCardState extends State<FormCard> {
                       left: 10,
                     ),
                     child: Text(
-                      'Password',
-                      style: AppStyle.loginPageStyle,
+                      'Password:',
+                      style: AppStyle.loginPageHeadingStyle,
                     )),
                 Container(
                   height: 40,
                   child: TextFormField(
+
                       validator: (v) {
                         if (user.password != null && user.password == v)
                           user.setPassStat(true);
 
                         if (v.isEmpty) return 'Password cannot be Empty!';
-                        if (!user.isValidPass) return 'Wrong Password';
                         if (!user.isValidPass && !user.isValidUser)
                           return 'Wrong Username and Password combination!';
+                        if (!user.isValidPass) return 'Wrong Password';
+
                         return null;
                       },
 //                        onSaved: (v) {},
@@ -148,17 +151,19 @@ class _FormCardState extends State<FormCard> {
                 ),
                 InkWell(
                     child: Container(
-                        margin: EdgeInsets.only(left: 200, top: 20),
-
+                        margin: EdgeInsets.only(left: 200, top: 40),
                         width: 100,
                         height: 50,
                         decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                colors: [Color(0xFF17ead9), Color(0xFF6078ea)]),
+                            gradient: LinearGradient(colors: [
+                              Color(0xFF17ead9),
+                              Color(0xFF6078ea)
+                            ]),
                             borderRadius: BorderRadius.circular(6.0),
                             boxShadow: [
                               BoxShadow(
-                                  color: Color(0xFF6078ea).withOpacity(.3),
+                                  color:
+                                  Color(0xFF6078ea).withOpacity(.3),
                                   offset: Offset(0.0, 8.0),
                                   blurRadius: 8.0)
                             ]),
@@ -169,8 +174,9 @@ class _FormCardState extends State<FormCard> {
                                   final form = formKey.currentState;
                                   if (form.validate()) {
                                     form.save();
-                                    Scaffold.of(context).showSnackBar(SnackBar(
-                                        content: Text('Logging in')));
+                                    Scaffold.of(context).showSnackBar(
+                                        SnackBar(
+                                            content: Text('Logging in')));
                                     loadMainPage(context);
                                   }
                                 },
@@ -178,7 +184,7 @@ class _FormCardState extends State<FormCard> {
                                     child: Text('Log in',
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontFamily: "Poppins-Bold",
+                                            fontFamily: 'Lato',
                                             fontSize: 18,
                                             letterSpacing: 1.0))))))),
               ],
@@ -193,17 +199,17 @@ class _FormCardState extends State<FormCard> {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(
-                    top: 10,
+                    top: 5,
                     bottom: 10,
                     left: 10,
                   ),
                   child: Text(
-                    'Email-ID',
-                    style: AppStyle.loginPageStyle,
+                    'Email-ID:',
+                    style: AppStyle.loginPageHeadingStyle,
                   ),
                 ),
                 Container(
-                  height: 40,
+                  height: 35,
                   child: TextFormField(
                       validator: (v) {
                         if (v.isEmpty) return 'E-mail cannot be Empty!';
@@ -213,7 +219,7 @@ class _FormCardState extends State<FormCard> {
                         user.setEmail(v);
                       },
                       decoration: InputDecoration(
-                          labelText: 'Enter an E-mail',
+                          labelText: 'Enter a E-mail address',
                           border: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Colors.green,
@@ -226,12 +232,12 @@ class _FormCardState extends State<FormCard> {
                     left: 10,
                   ),
                   child: Text(
-                    'Username',
-                    style: AppStyle.loginPageStyle,
+                    'Username:',
+                    style: AppStyle.loginPageHeadingStyle,
                   ),
                 ),
                 Container(
-                  height: 40,
+                  height: 35,
                   child: TextFormField(
                       validator: (v) {
                         if (v.isEmpty) return 'Username cannot be Empty!';
@@ -241,7 +247,7 @@ class _FormCardState extends State<FormCard> {
                         user.setUserName(v);
                       },
                       decoration: InputDecoration(
-                          labelText: 'Enter an Username',
+                          labelText: 'Enter a Username',
                           border: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Colors.green,
@@ -254,27 +260,51 @@ class _FormCardState extends State<FormCard> {
                     left: 10,
                   ),
                   child: Text(
-                    'Password',
-                    style: AppStyle.loginPageStyle,
+                    'Password:',
+                    style: AppStyle.loginPageHeadingStyle,
                   ),
                 ),
                 Container(
-                  height: 40,
-                  child: TextFormField(
-                      validator: (v) {
-                        if (v.isEmpty) return 'Password cannot be Empty!';
-                        return null;
-                      },
-                      onSaved: (v) {
-                        user.setPassword(v);
-                      },
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          labelText: 'Enter an Password (Alphanumeric)',
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.green,
-                              )))),
+                  height: 55,
+                  child: StatefulBuilder(
+                      builder: (context, setState) =>
+                          TextFormField(
+                              validator: (v) {
+                                if (v.isEmpty)
+                                  return 'Password cannot be Empty!';
+                                if (pass.length < 8)
+                                  return 'Must be at least 8 characters long';
+                                return null;
+                              },
+                              onSaved: (v) {
+                                user.setPassword(v);
+                              },
+                              obscureText: true,
+
+                              onChanged: (v) {
+                                setState(() {
+                                  pass = v;
+                                });
+                              },
+
+                              decoration: InputDecoration(
+                                  counterText: pass == null ? '0' : pass.length
+                                      .toString(),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: pass.length <= 7
+                                            ? Colors.red
+                                            : Colors.green,
+
+                                      )
+                                  ),
+
+                                  labelText: 'Enter a Password (Alphanumeric)',
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.green,
+                                      ))))
+                  ),
                 ),
                 InkWell(
                     child: Container(
@@ -282,12 +312,15 @@ class _FormCardState extends State<FormCard> {
                         width: 100,
                         height: 50,
                         decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                colors: [Color(0xFF17ead9), Color(0xFF6078ea)]),
+                            gradient: LinearGradient(colors: [
+                              Color(0xFF17ead9),
+                              Color(0xFF6078ea)
+                            ]),
                             borderRadius: BorderRadius.circular(6.0),
                             boxShadow: [
                               BoxShadow(
-                                  color: Color(0xFF6078ea).withOpacity(.3),
+                                  color:
+                                  Color(0xFF6078ea).withOpacity(.3),
                                   offset: Offset(0.0, 8.0),
                                   blurRadius: 8.0)
                             ]),
@@ -298,8 +331,10 @@ class _FormCardState extends State<FormCard> {
                                   final form = formKey.currentState;
                                   if (form.validate()) {
                                     form.save();
-                                    Scaffold.of(context).showSnackBar(SnackBar(
-                                        content: Text('Registering..')));
+                                    Scaffold.of(context).showSnackBar(
+                                        SnackBar(
+                                            content:
+                                            Text('Registering..')));
                                   }
                                 },
                                 child: Center(
@@ -318,12 +353,8 @@ class _FormCardState extends State<FormCard> {
   }
 }
 
-
 loadMainPage(BuildContext context) {
   Navigator.pushNamed(context, '/loading');
-  Timer(
-      Duration(seconds: 4),
-          () =>
-          Navigator.popAndPushNamed(
-              context, '/scaffold'));
+  Timer(Duration(seconds: 4),
+          () => Navigator.popAndPushNamed(context, '/scaffold'));
 }

@@ -1,3 +1,5 @@
+import 'package:b2b_app/Widgets/ChatPageWidgets/favourite_sellers.dart';
+import 'package:b2b_app/Widgets/ChatPageWidgets/recent_chats.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:b2b_app/Shared/random_color_gen.dart';
@@ -35,26 +37,29 @@ class _ChatPageState extends State<ChatPage> {
             Divider(
               thickness: 0.6,
             ),
-            Expanded(
-              child: ListView.separated(
-                  itemCount: colorRand.gencolors.length,
-                  separatorBuilder: (context, index) {
-                    return Divider(
-                      thickness: 2,
-                    );
-                  },
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      trailing: CircleAvatar(
-                        radius: 20,
-                        backgroundColor:
-                            colorRand.gencolors[index].withOpacity(0.5),
-                      ),
-                      leading: Icon(Icons.supervised_user_circle),
-                      title: Text('User $index'),
-                    );
-                  }),
-            )
+            FavouriteContacts(),
+            RecentChats(),
+
+//            Expanded(
+//              child: ListView.separated(
+//                  itemCount: colorRand.gencolors.length,
+//                  separatorBuilder: (context, index) {
+//                    return Divider(
+//                      thickness: 2,
+//                    );
+//                  },
+//                  itemBuilder: (context, index) {
+//                    return ListTile(
+//                      trailing: CircleAvatar(
+//                        radius: 20,
+//                        backgroundColor:
+//                            colorRand.gencolors[index].withOpacity(0.5),
+//                      ),
+//                      leading: Icon(Icons.supervised_user_circle),
+//                      title: Text('User $index'),
+//                    );
+//                  }),
+//            )
           ],
         ));
   }
@@ -69,7 +74,7 @@ Widget chatTabBar() {
         border: Border.all(
             color: Colors.blueGrey, width: 1, style: BorderStyle.solid),
         gradient:
-            LinearGradient(colors: [Colors.redAccent, Colors.orangeAccent]),
+        LinearGradient(colors: [Colors.redAccent, Colors.orangeAccent]),
         borderRadius: BorderRadius.circular(30),
         color: Colors.redAccent),
     tabs: <Widget>[

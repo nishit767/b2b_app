@@ -10,6 +10,11 @@ class AppStyle {
     fontFamily: 'Barlow',
     fontSize: 20,
   );
+  static TextStyle loginPageHeadingStyle = TextStyle(
+      fontFamily: 'Barlow',
+      fontSize: 24,
+      fontWeight: FontWeight.w500
+  );
   static TextStyle headingStyle1 = TextStyle(
     fontFamily: 'Lato',
     fontSize: 22,
