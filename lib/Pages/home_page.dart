@@ -17,16 +17,18 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Center(
       child: ListView(
-        padding: EdgeInsets.only(bottom: 10),
+        physics: BouncingScrollPhysics(),
+        padding: EdgeInsets.symmetric(horizontal: 3.86),
         children: <Widget>[
+//          Container(
+//              height: 90,
+//              width: 150,
+//              child: SearchBar()),
+          Container(height: 10),
+
+          Container(height: 70, child: buildCategoriesList()),
           Container(
-              height: 90,
-              width: 150,
-              child: SearchBar()),
-          Container(height: 60, child: buildCategoriesList()),
-          Container(
-              margin: EdgeInsets.symmetric(vertical: 0),
-              height: 200,
+              height: 300,
               width: 300,
               child: Carousel(
                 dotSize: 4,
@@ -37,11 +39,23 @@ class _HomePageState extends State<HomePage> {
                   Image.asset('images/carousel_2.jpeg')
                 ],
               )),
+          Container(height: 10),
+
           ProductReviewCard(),
+          Container(height: 50),
+
           getPopularCities(),
+          Container(height: 50),
+
           buildBrandsRowContainer(),
+          Container(height: 50),
+
           ProductReviewCard(),
+          Container(height: 50),
+
           CarouselFeaturedProducts(),
+          Container(height: 50),
+
         ],
       ),
     );
@@ -50,36 +64,37 @@ class _HomePageState extends State<HomePage> {
 
 // ignore: camel_case_types
 class buildCategoriesList extends StatelessWidget {
-  const buildCategoriesList({
+  buildCategoriesList({
     Key key,
   }) : super(key: key);
+  final List<Widget> rawList = [
+    getCircularLogo(
+        'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png'),
+    SizedBox(width: 30),
+    getCircularLogo(
+        'https://cdn3.iconfinder.com/data/icons/country-flags-shirts-geometric-simplification/344/flag-country-shirt-jersey_243-512.png'),
+    SizedBox(width: 30),
+    getCircularLogo(
+        'https://cdn3.iconfinder.com/data/icons/country-flags-shirts-geometric-simplification/344/flag-country-shirt-jersey_243-512.png'),
+    SizedBox(width: 30),
+    getCircularLogo(
+        'https://cdn3.iconfinder.com/data/icons/country-flags-shirts-geometric-simplification/344/flag-country-shirt-jersey_243-512.png'),
+    SizedBox(width: 30),
+    getCircularLogo(
+        'https://cdn2.iconfinder.com/data/icons/smashicons-gastronomy-retro-vol-3/58/140_-_Groceries_gastronomy_food_cooking-512.png'),
+    SizedBox(width: 30),
+    getCircularLogo(
+        'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png'),
+    SizedBox(width: 30),
+    getCircularLogo(
+        'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png')
+  ];
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       shrinkWrap: true,
-      children: <Widget>[
-        getCircularLogo(
-            'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png'),
-        SizedBox(width: 30),
-        getCircularLogo(
-            'https://cdn3.iconfinder.com/data/icons/country-flags-shirts-geometric-simplification/344/flag-country-shirt-jersey_243-512.png'),
-        SizedBox(width: 30),
-        getCircularLogo(
-            'https://cdn3.iconfinder.com/data/icons/country-flags-shirts-geometric-simplification/344/flag-country-shirt-jersey_243-512.png'),
-        SizedBox(width: 30),
-        getCircularLogo(
-            'https://cdn3.iconfinder.com/data/icons/country-flags-shirts-geometric-simplification/344/flag-country-shirt-jersey_243-512.png'),
-        SizedBox(width: 30),
-        getCircularLogo(
-            'https://cdn2.iconfinder.com/data/icons/smashicons-gastronomy-retro-vol-3/58/140_-_Groceries_gastronomy_food_cooking-512.png'),
-        SizedBox(width: 30),
-        getCircularLogo(
-            'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png'),
-        SizedBox(width: 30),
-        getCircularLogo(
-            'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png')
-      ],
+      children: rawList,
       scrollDirection: Axis.horizontal,
     );
   }

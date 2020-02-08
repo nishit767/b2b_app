@@ -25,10 +25,6 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
   var productStore = locator<ProductStore>();
 
 
-  @override
-  void initState() {
-
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +60,7 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
           ),
         ),
         Container(
-          height: _itemNo <= 2 ? 200 : 400,
+          height: _itemNo <= 2 ? 220 : 420,
           color: _bgColor,
           child: GridView.count(
               padding: EdgeInsets.all(10),
@@ -82,8 +78,9 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
                           productStore.products
                               .elementAt(Random().nextInt(50))
                               .imageURL,
-                          height: 140,
-                          width: 200,
+                          fit: BoxFit.cover,
+                          height: 130,
+                          width: 220,
                         ),
 //                        Placeholder(
 //                          fallbackHeight: 140,
@@ -91,12 +88,12 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
 //                        ),
                         Text(productStore.products
                             .elementAt(Random().nextInt(50))
-                            .category),
+                            .category, style: AppStyle.productHeading,),
                         Text(productStore.products
                             .elementAt(Random().nextInt(50))
                             .amountSold
                             .toString() +
-                            ' Sold')
+                            ' Sold', style: AppStyle.productSub,)
                       ],
                     ),
                   )

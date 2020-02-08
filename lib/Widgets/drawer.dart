@@ -1,5 +1,4 @@
 import 'package:b2b_app/Models/User.dart';
-import 'package:b2b_app/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -31,7 +30,7 @@ class _NavDrawerState extends State<NavDrawer> {
                 children: <Widget>[
                   //header
                   UserAccountsDrawerHeader(
-                    accountName: Text('Username:' + user.userName),
+                    accountName: Text('Looged in as: ' + user.userName),
                     accountEmail: Text(user.emailId),
                     currentAccountPicture: IconButton(
                       onPressed: () {
