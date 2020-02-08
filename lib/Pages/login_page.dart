@@ -34,15 +34,20 @@ class _LoginPageState extends State<LoginPage> {
           child: Stack(
             fit: StackFit.expand,
             children: <Widget>[
-//            Positioned(
-//              left: 50,
-//              top: 550,
-//              child: Image.asset(
-//                'images/login-top.jpg',
-//                height: 300,
-//                width: 300,
-//              ),
-//            ),
+              Positioned(
+                left: 180,
+                top: -20,
+                child: ClipOval(
+                  clipBehavior: Clip.antiAlias,
+                  child: Image.asset(
+                    'images/texture_7.jpg',
+                    height: 280,
+                    fit: BoxFit.cover,
+
+                    width: 300,
+                  ),
+                ),
+              ),
               Positioned(
                 top: 100,
                 left: 0,
@@ -78,8 +83,10 @@ class _LoginPageState extends State<LoginPage> {
                                 isSignIn = currentTab == 0;
                               });
                             },
+                            indicatorSize: TabBarIndicatorSize.label,
+                            unselectedLabelColor: Colors.grey,
                             labelColor: Colors.black,
-                            indicatorColor: Colors.white,
+                            indicatorColor: Colors.amber,
                             tabs: <Widget>[
                               Tab(
                                 child: Text(
@@ -130,6 +137,14 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(fontSize: 30, color: Colors.green),
                     ),
                   )),
+
+              Positioned(
+                top: 680,
+                child: Image.asset('images/city.png',),
+
+              ),
+
+
               Positioned(
                 top: 620,
                 child: Row(

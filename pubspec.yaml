@@ -59,6 +59,8 @@ flutter:
     - images/texture_4.jpg
     - images/texture_5.jpg
     - images/texture_6.jpg
+    - images/texture_7.jpg
+    - images/city.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -85,6 +87,9 @@ flutter:
     - family: Quicksand
       fonts:
          - asset: fonts/Quicksand/Quicksand-Regular.ttf
+         - asset: fonts/Quicksand/Quicksand-Bold.ttf
+           weight: 700
+
     - family: Lato
       fonts:
          - asset: fonts/Lato/Lato-Regular.ttf

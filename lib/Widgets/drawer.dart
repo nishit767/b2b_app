@@ -228,7 +228,7 @@ class _NavDrawerState extends State<NavDrawer> {
                   InkWell(
                     onTap: () {
                       Navigator.pop(context);
-                      Navigator.pushNamed(context, '/login');
+                      Navigator.pop(context);
                     },
                     child: Container(
                       height: 50,
