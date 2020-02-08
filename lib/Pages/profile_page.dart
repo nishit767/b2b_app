@@ -167,7 +167,6 @@ class ProfileView extends StatelessWidget {
             child: ListTile(
               onTap: () {
                 Navigator.pop(context);
-                Navigator.pop(context);
               },
               title: Text(
                 'LOG OUT FROM ALL DEVICES',

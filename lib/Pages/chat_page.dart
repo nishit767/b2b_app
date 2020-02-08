@@ -24,7 +24,7 @@ class _ChatPageState extends State<ChatPage> {
               padding: EdgeInsets.only(left: 10, right: 10),
               child: CupertinoTextField(
                 cursorColor: Colors.red,
-                placeholder: 'Search here...',
+                placeholder: 'Search chats...',
                 prefix: Icon(Icons.search),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),

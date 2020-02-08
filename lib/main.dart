@@ -102,11 +102,9 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
         appBar: AppBar(
           bottom: PreferredSize(
               child: Container(
-
                 margin: EdgeInsets.only(top: 0, bottom: 10),
                 padding: EdgeInsets.only(left: 7, right: 7),
                 child: CupertinoTextField(
-
                   suffix: Transform.scale(
                       scale: 0.85,
                       child: RaisedButton(
@@ -118,9 +116,11 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
                   cursorColor: Colors.red,
                   placeholderStyle: AppStyle.subtitleStyle1,
                   placeholder: 'Search for products, sellers, and more',
-                  prefix: Icon(Icons.search, size: 50,),
+                  prefix: Icon(
+                    Icons.search,
+                    size: 50,
+                  ),
                   decoration: BoxDecoration(
-
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
@@ -135,7 +135,7 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
                   Navigator.pushNamed(context, '/notif');
                 },
                 icon: Icon(Icons.notifications)),
-            IconButton(onPressed: null, icon: Icon(Icons.add_shopping_cart)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.add_shopping_cart)),
           ],
           title: Text('B2B'),
         ),
