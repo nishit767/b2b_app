@@ -1,6 +1,7 @@
 import 'package:b2b_app/Models/Product.dart';
 import 'package:b2b_app/Models/Seller.dart';
 import 'package:b2b_app/Models/User.dart';
+import 'package:b2b_app/Pages/category_list.dart';
 import 'package:b2b_app/Pages/chat_page.dart';
 import 'package:b2b_app/Pages/home_page.dart';
 import 'package:b2b_app/Pages/loading_page.dart';
@@ -24,36 +25,38 @@ void main() {
 
 class MyApp extends StatelessWidget {
   @override
-
   Widget build(BuildContext context) {
-    return MultiProvider(providers: [
-      ChangeNotifierProvider<User>(
-        create: (context) => User(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<User>(
+          create: (context) => User(),
+        ),
+        ChangeNotifierProvider<Seller>(
+          create: (context) => Seller(),
+        ),
+        ChangeNotifierProvider<ProductStore>(
+          create: (context) => ProductStore(),
+        ),
+      ],
+      child: MaterialApp(
+        routes: {
+          '/chats': (context) => ChatPage(),
+          '/home': (context) => HomePage(),
+          '/login': (context) => LoginPage(),
+          '/notif': (context) => NotifPage(),
+          '/scaffold': (context) => MyAppScaffold(),
+          '/loading': (context) => LoadingPage(),
+          '/wishlist': (context) => WishPage(),
+          '/profile': (context) => ProfilePage(),
+          '/category': (context) => CategoryListPage(),
+        },
+        title: 'B2B App',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primaryColor: Color(0xFF6082B5),
+        ),
+        home: LoginPage(),
       ),
-      ChangeNotifierProvider<Seller>(
-        create: (context) => Seller(),
-      ),
-      ChangeNotifierProvider<ProductStore>(
-        create: (context) => ProductStore(),
-      ),
-    ], child: MaterialApp(
-      routes: {
-        '/chats': (context) => ChatPage(),
-        '/home': (context) => HomePage(),
-        '/login': (context) => LoginPage(),
-        '/notif': (context) => NotifPage(),
-        '/scaffold': (context) => MyAppScaffold(),
-        '/loading': (context) => LoadingPage(),
-        '/wishlist': (context) => WishPage(),
-        '/profile': (context) => ProfilePage(),
-      },
-      title: 'B2B App',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Color(0xFF6082B5),
-      ),
-      home: LoginPage(),
-    ),
     );
   }
 }
@@ -134,7 +137,7 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
                   Navigator.pushNamed(context, '/notif');
                 },
                 icon: Icon(Icons.notifications)),
-            IconButton(onPressed: (){}, icon: Icon(Icons.add_shopping_cart)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.add_shopping_cart)),
           ],
           title: Text('B2B'),
         ),

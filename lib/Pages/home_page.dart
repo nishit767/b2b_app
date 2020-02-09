@@ -89,12 +89,21 @@ class buildCategoriesList extends StatelessWidget {
     getCircularLogo(
         'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png')
   ];
-
   @override
   Widget build(BuildContext context) {
+    List<Widget> list = rawList.map((widget) {
+      return GestureDetector(
+        child: widget,
+        onTap: () {
+          Navigator.pushNamed(context, '/category');
+        },
+      );
+    }).toList();
+
+
     return ListView(
       shrinkWrap: true,
-      children: rawList,
+      children: list,
       scrollDirection: Axis.horizontal,
     );
   }
