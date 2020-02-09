@@ -68,6 +68,14 @@ flutter:
     - images/user_profile_pics/sam.jpg
     - images/user_profile_pics/sophia.jpg
     - images/user_profile_pics/steven.jpg
+    - images/shoes/image 1.png
+    - images/shoes/image 2.png
+    - images/shoes/image 3.png
+    - images/shoes/image 4.png
+    - images/shoes/image 5.png
+    - images/shoes/image 6.png
+    - images/shoes/image 7.png
+    - images/shoes/image 8.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

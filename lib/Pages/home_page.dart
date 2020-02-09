@@ -67,7 +67,7 @@ class buildCategoriesList extends StatelessWidget {
   buildCategoriesList({
     Key key,
   }) : super(key: key);
-  List<Widget> rawList = [
+  final List<Widget> rawList = [
     getCircularLogo(
         'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png'),
     SizedBox(width: 30),
