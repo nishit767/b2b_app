@@ -19,10 +19,10 @@ class FormCard extends StatefulWidget {
 class _FormCardState extends State<FormCard> {
   bool isDoneEditing1 = false;
   String pass = '';
+  var formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    var formKey = GlobalKey<FormState>();
 
     User user = Provider.of<User>(context);
 

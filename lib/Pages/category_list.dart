@@ -42,7 +42,7 @@ class CategoryListPage extends StatelessWidget {
 }
 
 class ProductCard extends StatelessWidget {
-  var productStore = locator<ProductStore>();
+  final productStore = locator<ProductStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -277,7 +277,7 @@ class GradientProductCard extends StatelessWidget {
         Positioned(
           top: 30,
           left: -15,
-          child: Image.asset(
+          child: Image.network(
             product.imageURL,
             width: ScreenUtil().setWidth(310),
             height: ScreenUtil().setHeight(190),
@@ -297,7 +297,6 @@ class MessageListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var colorRand = ColorRand();
 
     return Container(
       height: ScreenUtil().setHeight(210),
@@ -332,7 +331,7 @@ class MessageListTile extends StatelessWidget {
                 Container(
                   height: ScreenUtil().setHeight(10),
                 ),
-                Image.asset(
+                Image.network(
                   product.imageURL,
                   height: ScreenUtil().setHeight(120),
                   width: ScreenUtil().setWidth(120),

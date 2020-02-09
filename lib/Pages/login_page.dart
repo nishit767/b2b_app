@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:b2b_app/Shared/app_style.dart';
 import 'package:b2b_app/Shared/load_main_page.dart';
 import 'package:b2b_app/Widgets/hr_line.dart';
@@ -119,8 +121,11 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       height: ScreenUtil().setHeight(360),
                       width: ScreenUtil().setWidth(325),
-                      child: FormCard(
-                        isSignIn,
+                      child: Builder(
+                        builder: (context) =>
+                            FormCard(
+                              isSignIn,
+                            ),
                       ),
                     ),
                   ],
@@ -166,8 +171,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Positioned(
-                top: 670,
-                left: -17.5,
+                top: ScreenUtil().setHeight(670),
+                left: ScreenUtil().setHeight(-17.5),
                 child: Transform.scale(
                   scale: 0.8,
                   child: Builder(
@@ -177,7 +182,7 @@ class _LoginPageState extends State<LoginPage> {
                             Scaffold.of(context).showSnackBar(SnackBar(
                               content: Text('Signing in with google'),
                             ));
-                            loadMainPage(context);
+                            Timer(Duration(seconds: 2), loadMainPage(context));
                           },
                           darkMode: true,
                         ),
@@ -185,8 +190,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Positioned(
-                top: 670,
-                left: 155,
+                top: ScreenUtil().setHeight(670),
+                left: ScreenUtil().setWidth(155),
                 child: Transform.scale(
                   scale: 0.8,
                   child: Builder(
@@ -195,7 +200,7 @@ class _LoginPageState extends State<LoginPage> {
                           Scaffold.of(context).showSnackBar(SnackBar(
                             content: Text('Signing in with Facebook'),
                           ));
-                          loadMainPage(context);
+                          Timer(Duration(seconds: 2), loadMainPage(context));
                         }),
                   ),
                 ),

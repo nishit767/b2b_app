@@ -1,6 +1,7 @@
 import 'package:b2b_app/Models/Product.dart';
 import 'package:b2b_app/Models/Seller.dart';
 import 'package:b2b_app/Models/User.dart';
+import 'package:b2b_app/Pages/cart_page.dart';
 import 'package:b2b_app/Pages/category_list.dart';
 import 'package:b2b_app/Pages/chat_page.dart';
 import 'package:b2b_app/Pages/home_page.dart';
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
                 '/wishlist': (context) => WishPage(),
                 '/profile': (context) => ProfilePage(),
                 '/category': (context) => CategoryListPage(),
+                '/cart': (context) => CartPage(),
               },
               title: 'B2B App',
               debugShowCheckedModeBanner: false,
@@ -147,7 +149,9 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
                   Navigator.pushNamed(context, '/notif');
                 },
                 icon: Icon(Icons.notifications)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.add_shopping_cart)),
+            IconButton(onPressed: () {
+              Navigator.pushNamed(context, '/cart');
+            }, icon: Icon(Icons.add_shopping_cart)),
           ],
           title: Text('B2B'),
         ),
