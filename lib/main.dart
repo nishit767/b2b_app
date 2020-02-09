@@ -9,6 +9,8 @@ import 'package:b2b_app/Pages/loading_page.dart';
 import 'package:b2b_app/Pages/login_page.dart';
 import 'package:b2b_app/Pages/notification_page.dart';
 import 'package:b2b_app/Pages/profile_page.dart';
+import 'package:b2b_app/Pages/sell_on_app_1.dart';
+import 'package:b2b_app/Pages/sell_on_app_2.dart';
 import 'package:b2b_app/Pages/shortlist_page.dart';
 import 'package:b2b_app/Shared/app_style.dart';
 import 'package:b2b_app/Widgets/drawer.dart';
@@ -61,6 +63,8 @@ class MyApp extends StatelessWidget {
                 '/profile': (context) => ProfilePage(),
                 '/category': (context) => CategoryListPage(),
                 '/cart': (context) => CartPage(),
+                '/sellcategory': (context) => SellCategoryPage(),
+                '/sellform': (context) => SellOnAppForm(),
               },
               title: 'B2B App',
               debugShowCheckedModeBanner: false,
