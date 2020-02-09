@@ -51,7 +51,7 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
                 style: AppStyle.headingStyle1,
               ),
               Container(
-                width: ScreenUtil().setWidth(100),
+                width: ScreenUtil().setWidth(80),
               ),
               RaisedButton(
                   color: Colors.blue,

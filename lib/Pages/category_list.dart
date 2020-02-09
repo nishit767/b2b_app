@@ -63,7 +63,7 @@ class ProductCard extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-            height: ScreenUtil().setHeight(300),
+            height: ScreenUtil().setHeight(350),
             child: Stack(
               fit: StackFit.expand,
               children: <Widget>[
