@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -18,6 +19,15 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, width: 392, height: 816, allowFontScaling: true);
+    print(MediaQuery
+        .of(context)
+        .size
+        .width);
+    print(MediaQuery
+        .of(context)
+        .size
+        .height);
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -39,14 +49,14 @@ class _LoginPageState extends State<LoginPage> {
                   clipBehavior: Clip.antiAlias,
                   child: Image.asset(
                     'images/texture_7.jpg',
-                    height: 280,
+                    height: ScreenUtil().setHeight(280),
                     fit: BoxFit.cover,
-                    width: 300,
+                    width: ScreenUtil().setWidth(300),
                   ),
                 ),
               ),
               Positioned(
-                top: 100,
+                top: ScreenUtil().setHeight(100),
                 left: 0,
                 child: Column(
                   children: <Widget>[
@@ -56,22 +66,22 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         Container(
-                          width: 10,
+                          width: ScreenUtil().setWidth(10),
                         ),
                         Icon(Icons.unfold_more),
                         Container(
-                          width: 10,
+                          width: ScreenUtil().setWidth(10),
                         ),
                         Text(
                           'B2B App',
                           style: AppStyle.loginPageStyle,
                         ),
                         Container(
-                          width: 70,
+                          width: ScreenUtil().setWidth(70),
                         ),
                         Container(
-                          height: 50,
-                          width: 200,
+                          height: ScreenUtil().setHeight(50),
+                          width: ScreenUtil().setWidth(200),
                           child: TabBar(
                             isScrollable: false,
                             onTap: (index) {
@@ -104,11 +114,11 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                     Container(
-                      height: 100,
+                      height: ScreenUtil().setHeight(100),
                     ),
                     Container(
-                      height: 360,
-                      width: 325,
+                      height: ScreenUtil().setHeight(360),
+                      width: ScreenUtil().setWidth(325),
                       child: FormCard(
                         isSignIn,
                       ),
@@ -117,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Positioned(
-                  top: 180,
+                  top: ScreenUtil().setHeight(180),
                   left: 20,
                   child: AnimatedSwitcher(
                     duration: Duration(milliseconds: 1100),
@@ -126,16 +136,18 @@ class _LoginPageState extends State<LoginPage> {
                         ? Text(
                       'Welcome Back',
                       key: ValueKey(1),
-                      style: TextStyle(fontSize: 30, color: Colors.green),
+                      style: TextStyle(fontSize: ScreenUtil().setSp(30),
+                          color: Colors.green),
                     )
                         : Text(
                       'Create an Account',
                       key: ValueKey(2),
-                      style: TextStyle(fontSize: 30, color: Colors.green),
+                      style: TextStyle(fontSize: ScreenUtil().setSp(30),
+                          color: Colors.green),
                     ),
                   )),
               Positioned(
-                top: 680,
+                top: ScreenUtil().setHeight(680),
                 child: Image.asset(
                   'images/city.png',
                 ),

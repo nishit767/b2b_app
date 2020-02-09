@@ -7,40 +7,37 @@ import 'package:flutter/material.dart';
 class CategoryListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData(
-          primaryTextTheme: TextTheme(body2: AppStyle.loginPageHeadingStyle)),
-      child: Scaffold(
+    return Scaffold(
 
-        appBar: AppBar(
-          automaticallyImplyLeading: true,
-          actions: <Widget>[
-            IconButton(onPressed: () {}, icon: Icon(Icons.add_shopping_cart)),
-          ],
-          backgroundColor: Colors.blue[700],
 
-          title: ListTile(
+      appBar: AppBar(
+        automaticallyImplyLeading: true,
+        actions: <Widget>[
+          IconButton(onPressed: () {}, icon: Icon(Icons.add_shopping_cart)),
+        ],
+        backgroundColor: Colors.blue[700],
 
-              leading: Icon(
-                Icons.shop,
+        title: ListTile(
+
+            leading: Icon(
+              Icons.shop,
+              color: Colors.white,
+            ),
+            title: Text(
+              'Shoes',
+              style: TextStyle(
                 color: Colors.white,
+                fontSize: 20,
               ),
-              title: Text(
-                'Shoes',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
-              )),
-        ),
-        body: ProductCard(),
+            )),
       ),
+      body: ProductCard(),
     );
   }
 }
 
 class ProductCard extends StatelessWidget {
-  var productStore = locator<ProductStore>();
+  final productStore = locator<ProductStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -293,7 +290,6 @@ class MessageListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var colorRand = ColorRand();
 
     return Container(
       height: 170,

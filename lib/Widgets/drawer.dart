@@ -1,4 +1,5 @@
 import 'package:b2b_app/Models/User.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,12 +25,27 @@ class _NavDrawerState extends State<NavDrawer> {
             child: Transform.scale(
               scale: 0.97,
               child: ListView(
-
                 shrinkWrap: true,
                 padding: EdgeInsets.all(5),
                 children: <Widget>[
                   //header
                   UserAccountsDrawerHeader(
+                    otherAccountsPictures: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.brightness_2),
+                        onPressed: () {
+                          if (DynamicTheme
+                              .of(context)
+                              .brightness ==
+                              Brightness.dark)
+                            DynamicTheme.of(context)
+                                .setBrightness(Brightness.light);
+                          else
+                            DynamicTheme.of(context)
+                                .setBrightness(Brightness.dark);
+                        },
+                      ),
+                    ],
                     accountName: Text('Looged in as: ' + user.userName),
                     accountEmail: Text(user.emailId),
                     currentAccountPicture: IconButton(

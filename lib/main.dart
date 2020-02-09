@@ -16,12 +16,14 @@ import 'package:fancy_bottom_bar/fancy_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
 
 //draggable floating action button
 void main() {
   setupLocator();
   runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -38,24 +40,32 @@ class MyApp extends StatelessWidget {
           create: (context) => ProductStore(),
         ),
       ],
-      child: MaterialApp(
-        routes: {
-          '/chats': (context) => ChatPage(),
-          '/home': (context) => HomePage(),
-          '/login': (context) => LoginPage(),
-          '/notif': (context) => NotifPage(),
-          '/scaffold': (context) => MyAppScaffold(),
-          '/loading': (context) => LoadingPage(),
-          '/wishlist': (context) => WishPage(),
-          '/profile': (context) => ProfilePage(),
-          '/category': (context) => CategoryListPage(),
-        },
-        title: 'B2B App',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primaryColor: Color(0xFF6082B5),
+      child: DynamicTheme(
+        defaultBrightness: Brightness.dark,
+        data: (brightness) =>
+        new ThemeData(
+          primarySwatch: Colors.cyan,
+          brightness: brightness,
         ),
-        home: LoginPage(),
+        themedWidgetBuilder: (context, theme) =>
+            MaterialApp(
+              routes: {
+                '/chats': (context) => ChatPage(),
+                '/home': (context) => HomePage(),
+                '/login': (context) => LoginPage(),
+                '/notif': (context) => NotifPage(),
+                '/scaffold': (context) => MyAppScaffold(),
+                '/loading': (context) => LoadingPage(),
+                '/wishlist': (context) => WishPage(),
+                '/profile': (context) => ProfilePage(),
+                '/category': (context) => CategoryListPage(),
+              },
+              title: 'B2B App',
+              debugShowCheckedModeBanner: false,
+              theme: theme
+              ,
+              home: LoginPage(),
+        ),
       ),
     );
   }
@@ -98,8 +108,7 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
           ],
         ),
         drawer:
-        /*ChangeNotifierProvider<User>(
-            create: (context) => user, child:*/
+
         NavDrawer(),
         appBar: AppBar(
           bottom: PreferredSize(
@@ -132,6 +141,7 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
               ),
               preferredSize: Size.fromHeight(60)),
           actions: <Widget>[
+
             IconButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/notif');

@@ -3,9 +3,9 @@ import 'package:b2b_app/Widgets/featured_preview_card.dart';
 import 'package:b2b_app/Widgets/popular_circle.dart';
 import 'package:b2b_app/Widgets/sponsored_deals.dart';
 import 'package:carousel_pro/carousel_pro.dart';
-import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -15,21 +15,24 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, width: 392, height: 816, allowFontScaling: true);
+
     return Center(
       child: ListView(
         physics: BouncingScrollPhysics(),
-        padding: EdgeInsets.symmetric(horizontal: 3.86),
+        padding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(3.86)),
         children: <Widget>[
 //          Container(
-//              height: 90,
-//              width: 150,
+//              height: ScreenUtil.setHeight( 90,
+//              width: ScreenUtil().setWidth( 150,
 //              child: SearchBar()),
-          Container(height: 10),
+          Container(height: ScreenUtil().setHeight(10)),
 
-          Container(height: 70, child: buildCategoriesList()),
           Container(
-              height: 300,
-              width: 300,
+              height: ScreenUtil().setHeight(50), child: buildCategoriesList()),
+          Container(
+              height: ScreenUtil().setHeight(300),
+              width: ScreenUtil().setWidth(300),
               child: Carousel(
                 dotSize: 4,
                 dotSpacing: 10,
@@ -39,22 +42,22 @@ class _HomePageState extends State<HomePage> {
                   Image.asset('images/carousel_2.jpeg')
                 ],
               )),
-          Container(height: 10),
+          Container(height: ScreenUtil().setHeight(10)),
 
           ProductReviewCard(),
-          Container(height: 50),
+          Container(height: ScreenUtil().setHeight(50)),
 
           getPopularCities(),
-          Container(height: 50),
+          Container(height: ScreenUtil().setHeight(50)),
 
           buildBrandsRowContainer(),
-          Container(height: 50),
+          Container(height: ScreenUtil().setHeight(50)),
 
           ProductReviewCard(),
-          Container(height: 50),
+          Container(height: ScreenUtil().setHeight(50)),
 
           CarouselFeaturedProducts(),
-          Container(height: 50),
+          Container(height: ScreenUtil().setHeight(50)),
 
         ],
       ),
@@ -68,24 +71,25 @@ class buildCategoriesList extends StatelessWidget {
     Key key,
   }) : super(key: key);
   final List<Widget> rawList = [
+
     getCircularLogo(
         'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png'),
-    SizedBox(width: 30),
+    SizedBox(width: ScreenUtil().setWidth(30)),
     getCircularLogo(
         'https://cdn3.iconfinder.com/data/icons/country-flags-shirts-geometric-simplification/344/flag-country-shirt-jersey_243-512.png'),
-    SizedBox(width: 30),
+    SizedBox(width: ScreenUtil().setWidth(30)),
     getCircularLogo(
         'https://cdn3.iconfinder.com/data/icons/country-flags-shirts-geometric-simplification/344/flag-country-shirt-jersey_243-512.png'),
-    SizedBox(width: 30),
+    SizedBox(width: ScreenUtil().setWidth(30)),
     getCircularLogo(
         'https://cdn3.iconfinder.com/data/icons/country-flags-shirts-geometric-simplification/344/flag-country-shirt-jersey_243-512.png'),
-    SizedBox(width: 30),
+    SizedBox(width: ScreenUtil().setWidth(30)),
     getCircularLogo(
         'https://cdn2.iconfinder.com/data/icons/smashicons-gastronomy-retro-vol-3/58/140_-_Groceries_gastronomy_food_cooking-512.png'),
-    SizedBox(width: 30),
+    SizedBox(width: ScreenUtil().setWidth(30)),
     getCircularLogo(
         'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png'),
-    SizedBox(width: 30),
+    SizedBox(width: ScreenUtil().setWidth(30)),
     getCircularLogo(
         'https://icons-for-free.com/iconfiles/png/512/consumer+electronics-131964735205643930.png')
   ];
