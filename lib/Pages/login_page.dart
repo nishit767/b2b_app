@@ -1,4 +1,5 @@
 import 'package:b2b_app/Shared/app_style.dart';
+import 'package:b2b_app/Shared/load_main_page.dart';
 import 'package:b2b_app/Widgets/hr_line.dart';
 import 'package:b2b_app/Widgets/login_form_card.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,9 +28,7 @@ class _LoginPageState extends State<LoginPage> {
               textTheme: TextTheme(
                 body1: AppStyle.loginPageStyle,
                 body2: AppStyle.loginPageStyle,
-
-              )
-          ),
+              )),
           child: Stack(
             fit: StackFit.expand,
             children: <Widget>[
@@ -42,7 +41,6 @@ class _LoginPageState extends State<LoginPage> {
                     'images/texture_7.jpg',
                     height: 280,
                     fit: BoxFit.cover,
-
                     width: 300,
                   ),
                 ),
@@ -136,14 +134,12 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(fontSize: 30, color: Colors.green),
                     ),
                   )),
-
               Positioned(
                 top: 680,
-                child: Image.asset('images/city.png',),
-
+                child: Image.asset(
+                  'images/city.png',
+                ),
               ),
-
-
               Positioned(
                 top: 620,
                 child: Row(
@@ -160,14 +156,19 @@ class _LoginPageState extends State<LoginPage> {
               Positioned(
                 top: 670,
                 left: -17.5,
-
                 child: Transform.scale(
                   scale: 0.8,
-                  child: GoogleSignInButton(
-                    onPressed: () {
-                      print('h');
-                    },
-                    darkMode: true,
+                  child: Builder(
+                    builder: (context) =>
+                        GoogleSignInButton(
+                          onPressed: () {
+                            Scaffold.of(context).showSnackBar(SnackBar(
+                              content: Text('Signing in with google'),
+                            ));
+                            loadMainPage(context);
+                          },
+                          darkMode: true,
+                        ),
                   ),
                 ),
               ),
@@ -176,9 +177,15 @@ class _LoginPageState extends State<LoginPage> {
                 left: 155,
                 child: Transform.scale(
                   scale: 0.8,
-                  child: FacebookSignInButton(onPressed: () {
-                    print('h');
-                  }),
+                  child: Builder(
+                    builder: (context) =>
+                        FacebookSignInButton(onPressed: () {
+                          Scaffold.of(context).showSnackBar(SnackBar(
+                            content: Text('Signing in with Facebook'),
+                          ));
+                          loadMainPage(context);
+                        }),
+                  ),
                 ),
               )
             ],

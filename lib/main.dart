@@ -8,6 +8,7 @@ import 'package:b2b_app/Pages/login_page.dart';
 import 'package:b2b_app/Pages/notification_page.dart';
 import 'package:b2b_app/Pages/profile_page.dart';
 import 'package:b2b_app/Pages/shortlist_page.dart';
+import 'package:b2b_app/Shared/app_style.dart';
 import 'package:b2b_app/Widgets/drawer.dart';
 import 'package:b2b_app/locator.dart';
 import 'package:fancy_bottom_bar/fancy_bottom_bar.dart';
@@ -71,6 +72,7 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
+        backgroundColor: Color(0xffffe0b2),
         resizeToAvoidBottomPadding: true,
         bottomNavigationBar: FancyBottomBar(
           height: 50,
@@ -92,9 +94,40 @@ class _MyAppScaffoldState extends State<MyAppScaffold> {
                 title: Text('My Profile'), icon: Icon(Icons.account_circle))
           ],
         ),
-        drawer: /*ChangeNotifierProvider<User>(
-            create: (context) => user, child:*/ NavDrawer(),
+        drawer:
+        /*ChangeNotifierProvider<User>(
+            create: (context) => user, child:*/
+        NavDrawer(),
         appBar: AppBar(
+          bottom: PreferredSize(
+              child: Container(
+                margin: EdgeInsets.only(top: 0, bottom: 10),
+                padding: EdgeInsets.only(left: 7, right: 7),
+                child: CupertinoTextField(
+                  suffix: Transform.scale(
+                      scale: 0.85,
+                      child: RaisedButton(
+                        color: Colors.blue,
+                        onPressed: () {},
+                        child: Text('Search'),
+                      )),
+                  suffixMode: OverlayVisibilityMode.editing,
+                  cursorColor: Colors.red,
+                  placeholderStyle: AppStyle.subtitleStyle1,
+                  placeholder: 'Search for products, sellers, and more',
+                  prefix: Icon(
+                    Icons.search,
+                    size: 50,
+                  ),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: Colors.green,
+                      )),
+                ),
+              ),
+              preferredSize: Size.fromHeight(60)),
           actions: <Widget>[
             IconButton(
                 onPressed: () {

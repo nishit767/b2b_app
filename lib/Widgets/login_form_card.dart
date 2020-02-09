@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:b2b_app/Models/User.dart';
 import 'package:b2b_app/Shared/app_style.dart';
+import 'package:b2b_app/Shared/load_main_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -26,7 +27,6 @@ class _FormCardState extends State<FormCard> {
 
     User user = Provider.of<User>(context);
 
-    print(widget.isSignIn);
 
     return Container(
       decoration: BoxDecoration(
@@ -81,7 +81,6 @@ class _FormCardState extends State<FormCard> {
                     validator: (v) {
                       if (user.userName != null && user.userName == v)
                         user.setUserStat(true);
-                      print(v.toString());
                       if (v.isEmpty) return 'Username cannot be Empty!';
 
                       if (!user.isValidUser) return 'Wrong Username';
@@ -350,10 +349,4 @@ class _FormCardState extends State<FormCard> {
       ),
     );
   }
-}
-
-loadMainPage(BuildContext context) {
-  Navigator.pushNamed(context, '/loading');
-  Timer(Duration(seconds: 4),
-          () => Navigator.popAndPushNamed(context, '/scaffold'));
 }

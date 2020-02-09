@@ -29,4 +29,13 @@ class AppStyle {
       fontSize: 18,
       fontWeight: FontWeight.w200
   );
+  static TextStyle productHeading = TextStyle(
+      fontFamily: 'Lato',
+      fontSize: 20,
+      fontWeight: FontWeight.w200
+  );
+  static TextStyle productSub = TextStyle(
+    fontFamily: 'Quicksand',
+    fontSize: 14,
+  );
 }

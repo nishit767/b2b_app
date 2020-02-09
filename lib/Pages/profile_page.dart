@@ -1,4 +1,6 @@
+import 'package:b2b_app/Models/User.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -31,6 +33,7 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var user = Provider.of<User>(context);
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -61,11 +64,11 @@ class ProfileView extends StatelessWidget {
                 ),
                 child: Center(
                     child: Text(
-                  'Add photo',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                )),
+                      'Add photo',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    )),
               ),
             ),
           ),
@@ -87,7 +90,7 @@ class ProfileView extends StatelessWidget {
                 size: 30,
               ),
               title: Text(
-                'Username',
+                user.userName,
                 style: TextStyle(
                   fontSize: 15,
                   color: Colors.black,
@@ -141,7 +144,7 @@ class ProfileView extends StatelessWidget {
                 size: 30,
               ),
               title: Text(
-                'user_id@gmail.com',
+                user.emailId,
                 style: TextStyle(
                   fontSize: 15,
                   color: Colors.black,
@@ -162,7 +165,9 @@ class ProfileView extends StatelessWidget {
           ),
           Card(
             child: ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+              },
               title: Text(
                 'LOG OUT FROM ALL DEVICES',
                 style: TextStyle(
