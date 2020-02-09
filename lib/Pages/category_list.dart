@@ -8,20 +8,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CategoryListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, width: 392, height: 816,allowFontScaling: true);
+    ScreenUtil.init(context, width: 392, height: 816, allowFontScaling: true);
     return Theme(
       data: ThemeData(
           primaryTextTheme: TextTheme(body2: AppStyle.loginPageHeadingStyle)),
       child: Scaffold(
 
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-        actions: <Widget>[
-          IconButton(onPressed: () {}, icon: Icon(Icons.add_shopping_cart)),
-        ],
-        backgroundColor: Colors.blue[700],
+        appBar: AppBar(
+          automaticallyImplyLeading: true,
+          actions: <Widget>[
+            IconButton(onPressed: () {}, icon: Icon(Icons.add_shopping_cart)),
+          ],
+          backgroundColor: Colors.blue[700],
 
-        title: ListTile(
+          title: ListTile(
 
               leading: Icon(
                 Icons.shop,
@@ -46,6 +46,8 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, width: 392, height: 816, allowFontScaling: true);
+
     return Container(
       padding: EdgeInsets.fromLTRB(5, 10, 0, 0),
       child: ListView(
@@ -61,7 +63,7 @@ class ProductCard extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-            height: ScreenUtil().setHeight( 350),
+            height: ScreenUtil().setHeight(300),
             child: Stack(
               fit: StackFit.expand,
               children: <Widget>[
@@ -79,19 +81,19 @@ class ProductCard extends StatelessWidget {
             child: Text('Most sold products :', style: AppStyle.headingStyle2),
           ),
           Container(
-            height: ScreenUtil().setHeight( 150),
+            height: ScreenUtil().setHeight(150),
             child: Stack(
               children: <Widget>[
                 ListView(scrollDirection: Axis.horizontal, children: <Widget>[
                   Container(
-                    width: ScreenUtil().setWidth( 1000),
+                    width: ScreenUtil().setWidth(1000),
                     margin: EdgeInsets.symmetric(
                       horizontal: 5,
                       vertical: 10,
                     ),
                     padding: EdgeInsets.only(
                       top: 5,
-                      left: 40,
+                      left: ScreenUtil().setWidth(40),
                     ),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -113,56 +115,56 @@ class ProductCard extends StatelessWidget {
                       children: <Widget>[
                         Image.network(
                           'https://github.com/iampawan/FUI01-NikeWebFlutter/blob/master/assets/images/shoe.png?raw=true',
-                          width: ScreenUtil().setWidth( 120),
-                          height: ScreenUtil().setHeight( 150),
+                          width: ScreenUtil().setWidth(120),
+                          height: ScreenUtil().setHeight(150),
                           fit: BoxFit.cover,
                         ),
                         Container(
-                          width: ScreenUtil().setWidth( 20),
+                          width: ScreenUtil().setWidth(20),
                         ),
                         Image.network(
                           'https://github.com/iampawan/FUI01-NikeWebFlutter/blob/master/assets/images/shoe.png?raw=true',
-                          width: ScreenUtil().setWidth( 120),
-                          height: ScreenUtil().setHeight( 150),
+                          width: ScreenUtil().setWidth(120),
+                          height: ScreenUtil().setHeight(150),
                           fit: BoxFit.cover,
                         ),
                         Container(
-                          width: ScreenUtil().setWidth( 20),
+                          width: ScreenUtil().setWidth(20),
                         ),
                         Container(
-                          width: ScreenUtil().setWidth( 20),
+                          width: ScreenUtil().setWidth(20),
                         ),
                         Image.network(
                           'https://github.com/iampawan/FUI01-NikeWebFlutter/blob/master/assets/images/shoe.png?raw=true',
-                          width: ScreenUtil().setWidth( 120),
-                          height: ScreenUtil().setHeight( 150),
+                          width: ScreenUtil().setWidth(120),
+                          height: ScreenUtil().setHeight(150),
                           fit: BoxFit.cover,
                         ),
                         Container(
-                          width: ScreenUtil().setWidth( 20),
+                          width: ScreenUtil().setWidth(20),
                         ),
                         Image.network(
                           'https://github.com/iampawan/FUI01-NikeWebFlutter/blob/master/assets/images/shoe.png?raw=true',
-                          width: ScreenUtil().setWidth( 120),
-                          height: ScreenUtil().setHeight( 150),
+                          width: ScreenUtil().setWidth(120),
+                          height: ScreenUtil().setHeight(150),
                           fit: BoxFit.cover,
                         ),
                         Container(
-                          width: ScreenUtil().setWidth( 20),
+                          width: ScreenUtil().setWidth(20),
                         ),
                         Image.network(
                           'https://github.com/iampawan/FUI01-NikeWebFlutter/blob/master/assets/images/shoe.png?raw=true',
-                          width: ScreenUtil().setWidth( 120),
-                          height: ScreenUtil().setHeight( 150),
+                          width: ScreenUtil().setWidth(120),
+                          height: ScreenUtil().setHeight(150),
                           fit: BoxFit.cover,
                         ),
                         Container(
-                          width: ScreenUtil().setWidth( 20),
+                          width: ScreenUtil().setWidth(20),
                         ),
                         Image.network(
                           'https://github.com/iampawan/FUI01-NikeWebFlutter/blob/master/assets/images/shoe.png?raw=true',
-                          width: ScreenUtil().setWidth( 120),
-                          height: ScreenUtil().setHeight( 150),
+                          width: ScreenUtil().setWidth(120),
+                          height: ScreenUtil().setHeight(150),
                           fit: BoxFit.cover,
                         ),
                       ],
@@ -201,15 +203,15 @@ class GradientProductCard extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+          padding: EdgeInsets.fromLTRB(ScreenUtil().setWidth(20), 0, 0, 0),
           alignment: Alignment.topCenter,
           child: Padding(
             padding: EdgeInsets.only(
-              bottom: 20,
+              bottom: ScreenUtil().setHeight(20),
             ),
             child: Container(
-              width: ScreenUtil().setWidth( 250),
-              height: ScreenUtil().setHeight( 400),
+              width: ScreenUtil().setWidth(250),
+              height: ScreenUtil().setHeight(400),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                     begin: Alignment.topRight,
@@ -232,7 +234,7 @@ class GradientProductCard extends StatelessWidget {
                 children: <Widget>[
                   Positioned(
                     left: 20,
-                    top: 20,
+                    top: ScreenUtil().setHeight(20),
                     child: Text(
                       '0' + product.name.substring(5, 6),
                       style: TextStyle(
@@ -248,7 +250,7 @@ class GradientProductCard extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.only(
                         left: 20,
-                        bottom: 15,
+                        bottom: ScreenUtil().setHeight(15),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -275,10 +277,10 @@ class GradientProductCard extends StatelessWidget {
         Positioned(
           top: 30,
           left: -15,
-          child: Image.asset(
+          child: Image.network(
             product.imageURL,
-            width: ScreenUtil().setWidth( 310),
-            height: ScreenUtil().setHeight( 190),
+            width: ScreenUtil().setWidth(310),
+            height: ScreenUtil().setHeight(190),
             fit: BoxFit.cover,
           ),
         ),
@@ -312,7 +314,7 @@ class MessageListTile extends StatelessWidget {
           children: <Widget>[
             Column(
               children: <Widget>[
-                Container(height: ScreenUtil().setHeight( 6)),
+                Container(height: ScreenUtil().setHeight(6)),
                 product.seller.isVerified
                     ? Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -321,18 +323,18 @@ class MessageListTile extends StatelessWidget {
                       Icons.verified_user,
                       color: Colors.green,
                     ),
-                    Container(width: ScreenUtil().setWidth( 2,)),
+                    Container(width: ScreenUtil().setWidth(2,)),
                     Text('Verified', style: AppStyle.subtitleStyle1,),
                   ],
                 )
                     : SizedBox.shrink(),
                 Container(
-                  height: ScreenUtil().setHeight( 10),
+                  height: ScreenUtil().setHeight(10),
                 ),
-                Image.asset(
+                Image.network(
                   product.imageURL,
-                  height: ScreenUtil().setHeight( 120),
-                  width: ScreenUtil().setWidth( 120),
+                  height: ScreenUtil().setHeight(120),
+                  width: ScreenUtil().setWidth(120),
                   fit: BoxFit.cover,
                 ),
               ],
@@ -364,11 +366,11 @@ class MessageListTile extends StatelessWidget {
                   Container(
                     width: ScreenUtil().setWidth(130),
                   ),
-                  product.isFavourite != null ? Icon(Icons.favorite) : Icon(
+                  product.isFavourite ? Icon(Icons.favorite) : Icon(
                       Icons.favorite_border),
                 ]),
                 Container(
-                  width: ScreenUtil().setWidth( 200),
+                  width: ScreenUtil().setWidth(200),
                   child: Text(product.description,
                       overflow: TextOverflow.ellipsis,
                       style:
@@ -388,7 +390,7 @@ class MessageListTile extends StatelessWidget {
                       scale: 0.9,
                       child: Container(
                         width: ScreenUtil().setWidth(150),
-                        padding: EdgeInsets.only(left:5),
+                        padding: EdgeInsets.only(left: 5),
                         child: RaisedButton.icon(
                           elevation: 5,
                           icon: Icon(Icons.add_shopping_cart),
@@ -418,7 +420,8 @@ class MessageListTile extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(110, 0, 0, 0),
+                  padding: EdgeInsets.fromLTRB(
+                      ScreenUtil().setWidth(140), 0, 0, 0),
                   child: product.isFreeDelivery
                       ? Text('FREE Delivery')
                       : Text(''),

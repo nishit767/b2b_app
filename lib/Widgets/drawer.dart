@@ -157,7 +157,9 @@ class _NavDrawerState extends State<NavDrawer> {
                     color: Colors.yellow[500],
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, '/sellcategory');
+                    },
                     child: ListTile(
                       leading: Icon(
                         Icons.business_center,

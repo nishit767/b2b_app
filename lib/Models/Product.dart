@@ -45,13 +45,12 @@ class ProductStore extends ChangeNotifier {
           Random().nextDouble() * 5,
           Random().nextDouble() * 10000));
     }
-    //{this.description, this.isFreeDelivery, this.seller, this.isFavourite,this.shoeImageUrl});
 
     shoeProducts = [];
     for (int i = 0; i <= 49; i++) {
       imageIndex = i % 7 + 1;
       shoeProducts.add(Product(
-          'images/shoes/image $imageIndex.png',
+          'https://github.com/cmd-dev/b2b_app/blob/master/images/shoes/image%20$imageIndex.png?raw=true',
           Random().nextInt(50) * 20,
           'Fashion',
           Random().nextDouble() * 5,
