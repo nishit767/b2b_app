@@ -19,12 +19,12 @@ class FormCard extends StatefulWidget {
 class _FormCardState extends State<FormCard> {
   bool isDoneEditing1 = false;
   String pass = '';
+
   @override
   Widget build(BuildContext context) {
     var formKey = GlobalKey<FormState>();
 
     User user = Provider.of<User>(context);
-
 
     return Container(
       decoration: BoxDecoration(
@@ -70,8 +70,8 @@ class _FormCardState extends State<FormCard> {
                     bottom: 10,
                     left: 10,
                   ),
-                  child: Text(
-                      'Username:', style: AppStyle.loginPageHeadingStyle),
+                  child: Text('Username:',
+                      style: AppStyle.loginPageHeadingStyle),
                 ),
                 Container(
                   height: 40,
@@ -97,9 +97,7 @@ class _FormCardState extends State<FormCard> {
 //              suffixMode: OverlayVisibilityMode.always,
 
                     decoration: InputDecoration(
-
                         labelText: 'Enter your Username',
-
                         border: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.green,
@@ -123,12 +121,12 @@ class _FormCardState extends State<FormCard> {
                 Container(
                   height: 40,
                   child: TextFormField(
-
                       validator: (v) {
                         if (user.password != null && user.password == v)
                           user.setPassStat(true);
 
-                        if (v.isEmpty) return 'Password cannot be Empty!';
+                        if (v.isEmpty)
+                          return 'Password cannot be Empty!';
                         if (!user.isValidPass && !user.isValidUser)
                           return 'Wrong Username and Password combination!';
                         if (!user.isValidPass) return 'Wrong Password';
@@ -172,7 +170,8 @@ class _FormCardState extends State<FormCard> {
                                     form.save();
                                     Scaffold.of(context).showSnackBar(
                                         SnackBar(
-                                            content: Text('Logging in')));
+                                            content:
+                                            Text('Logging in')));
                                     loadMainPage(context);
                                   }
                                 },
@@ -276,31 +275,27 @@ class _FormCardState extends State<FormCard> {
                                 user.setPassword(v);
                               },
                               obscureText: true,
-
                               onChanged: (v) {
                                 setState(() {
                                   pass = v;
                                 });
                               },
-
                               decoration: InputDecoration(
-                                  counterText: pass == null ? '0' : pass.length
-                                      .toString(),
+                                  counterText: pass == null
+                                      ? '0'
+                                      : pass.length.toString(),
                                   focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: pass.length <= 7
                                             ? Colors.red
                                             : Colors.green,
-
-                                      )
-                                  ),
-
-                                  labelText: 'Enter a Password (Alphanumeric)',
+                                      )),
+                                  labelText:
+                                  'Enter a Password (Alphanumeric)',
                                   border: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.green,
-                                      ))))
-                  ),
+                                      ))))),
                 ),
                 InkWell(
                     child: Container(

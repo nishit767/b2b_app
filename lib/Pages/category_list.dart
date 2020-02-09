@@ -14,14 +14,14 @@ class CategoryListPage extends StatelessWidget {
           primaryTextTheme: TextTheme(body2: AppStyle.loginPageHeadingStyle)),
       child: Scaffold(
 
-        appBar: AppBar(
-          automaticallyImplyLeading: true,
-          actions: <Widget>[
-            IconButton(onPressed: () {}, icon: Icon(Icons.add_shopping_cart)),
-          ],
-          backgroundColor: Colors.blue[700],
+      appBar: AppBar(
+        automaticallyImplyLeading: true,
+        actions: <Widget>[
+          IconButton(onPressed: () {}, icon: Icon(Icons.add_shopping_cart)),
+        ],
+        backgroundColor: Colors.blue[700],
 
-          title: ListTile(
+        title: ListTile(
 
               leading: Icon(
                 Icons.shop,
@@ -42,7 +42,7 @@ class CategoryListPage extends StatelessWidget {
 }
 
 class ProductCard extends StatelessWidget {
-  var productStore = locator<ProductStore>();
+  final productStore = locator<ProductStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -295,7 +295,6 @@ class MessageListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var colorRand = ColorRand();
 
     return Container(
       height: ScreenUtil().setHeight(210),

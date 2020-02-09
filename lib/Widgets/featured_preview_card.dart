@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:b2b_app/Shared/random_color_gen.dart';
 import 'dart:math';
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class ProductReviewCard extends StatefulWidget {
   ProductReviewCard({Key key,
     this.heading = 'Featured Products',
@@ -28,26 +30,28 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, width: 392, height: 816, allowFontScaling: true);
+
     int _itemNo = Random().nextInt(12) + 2;
-    Color _bgColor =
-    randomColor.gencolors[Random().nextInt(50)].withOpacity(0.5);
+    Color _bgColor = randomColor.gencolors[Random().nextInt(50)].withOpacity(
+        0.5);
     return Column(
       children: <Widget>[
         Container(
-          height: 50,
+          height: ScreenUtil().setHeight(50),
           color: _bgColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Container(
-                width: 10,
+                width: ScreenUtil().setWidth(10),
               ),
               Text(
                 widget.heading,
                 style: AppStyle.headingStyle1,
               ),
               Container(
-                width: 100,
+                width: ScreenUtil().setWidth(100),
               ),
               RaisedButton(
                   color: Colors.blue,
@@ -60,7 +64,7 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
           ),
         ),
         Container(
-          height: _itemNo <= 2 ? 220 : 420,
+          height: ScreenUtil().setHeight(_itemNo <= 2 ? 220 : 420),
           color: _bgColor,
           child: GridView.count(
               padding: EdgeInsets.all(10),
@@ -79,8 +83,8 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
                               .elementAt(Random().nextInt(50))
                               .imageURL,
                           fit: BoxFit.cover,
-                          height: 130,
-                          width: 220,
+                          height: ScreenUtil().setHeight(129),
+                          width: ScreenUtil().setWidth(220),
                         ),
 //                        Placeholder(
 //                          fallbackHeight: 140,
@@ -88,12 +92,16 @@ class _ProductReviewCardState extends State<ProductReviewCard> {
 //                        ),
                         Text(productStore.products
                             .elementAt(Random().nextInt(50))
-                            .category, style: AppStyle.productHeading,),
+                            .category, style: AppStyle.productHeading.copyWith(
+                            fontSize: ScreenUtil().setSp(
+                                20, allowFontScalingSelf: true)),),
                         Text(productStore.products
                             .elementAt(Random().nextInt(50))
                             .amountSold
                             .toString() +
-                            ' Sold', style: AppStyle.productSub,)
+                            ' Sold', style: AppStyle.productSub.copyWith(
+                            fontSize: ScreenUtil().setSp(
+                                14, allowFontScalingSelf: false)),)
                       ],
                     ),
                   )
